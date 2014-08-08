@@ -2,12 +2,22 @@
   background-color: #fff2cc;
 }
 
-#container{}
+#container{
+  background-color: #51b11d;
+}
 
-#contents_left{}
+#contents_left{
+  background-color: #8856a1;
+}
 
-#contents{}
+#contents{
+  background-color: #5389e6;
+}
 
-#side_left{}
+#side_left{
+  background-color: #f19c99;
+}
 
-#side_right{}
+#side_right{
+  background-color: #97d007;
+}
