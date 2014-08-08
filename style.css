@@ -4,7 +4,6 @@
 
 #container{
   background-color: #51b11d;
-  float: right;
 }
 
 #contents_left{
@@ -14,6 +13,7 @@
 
 #contents{
   background-color: #5389e6;
+  float: right;
 }
 
 #side_left{
