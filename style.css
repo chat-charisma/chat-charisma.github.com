@@ -4,10 +4,12 @@
 
 #container{
   background-color: #51b11d;
+  float: right;
 }
 
 #contents_left{
   background-color: #8856a1;
+  float: left;
 }
 
 #contents{
@@ -16,6 +18,7 @@
 
 #side_left{
   background-color: #f19c99;
+  float: left;
 }
 
 #side_right{
