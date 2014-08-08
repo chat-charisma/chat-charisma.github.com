@@ -8,27 +8,39 @@ body{
 
 #top{
   background-color: #fff2cc;
+  width: 1024px;
+  height: 100px:
 }
 
 #container{
   background-color: #51b11d;
+  width: 700px;
+  height: 3896px:
 }
 
 #contents_left{
   background-color: #8856a1;
   float: left;
+  width: 300px;
+  height: 250px:
 }
 
 #contents{
   background-color: #5389e6;
   float: right;
+  width: 424px;
+  height: 3896px:
 }
 
 #side_left{
   background-color: #f19c99;
   float: left;
+  width: 300px;
+  height: 600px:
 }
 
 #side_right{
   background-color: #97d007;
+  width: 1024px;
+  height: 100px:
 }
