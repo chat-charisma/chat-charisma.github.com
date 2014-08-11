@@ -36,6 +36,8 @@ body{
 
 #side_left{
   background-color: #f19c99;
+  position: relative;
+  clear: both;
   float: left;
   width: 100px;
   height: 100px;
