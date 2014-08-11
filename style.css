@@ -20,6 +20,7 @@ body{
 
 #contents_left{
   background-color: #8856a1;
+  position: absolute;
   float: left;
   width: 100px;
   height: 200px;
