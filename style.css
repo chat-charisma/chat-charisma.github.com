@@ -28,14 +28,14 @@ body{
 
 #contents{
   background-color: #5389e6;
-  float: right;
+  /*float: right;*/
   width: 424px;
   height: 3896px;
 }
 
 #side_left{
   background-color: #f19c99;
-  float: left;
+  /*float: left;*/
   width: 300px;
   height: 600px;
 }
