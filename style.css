@@ -42,6 +42,7 @@ body{
 
 #botton{
   background-color: #f19c99;
-  /*width: 300px;*/
+  clear: both;
+  width: 1024px;
   height: 100px;
 }
