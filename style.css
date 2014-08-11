@@ -14,30 +14,32 @@ body{
 
 #container{
   background-color: #51b11d;
-  width: 100px;
+  width: 200px;
   height: 100px;
 }
 
 #contents_left{
   background-color: #8856a1;
+  float: left;
   width: 100px;
   height: 100px;
 }
 
 #contents{
   background-color: #5389e6;
-  width: 100px;
-  height: 100px;
-}
-
-#side_left{
-  background-color: #f19c99;
+  float: right;
   width: 100px;
   height: 100px;
 }
 
 #side_right{
   background-color: #97d007;
+  width: 100px;
+  height: 100px;
+}
+
+#botton{
+  background-color: #f19c99;
   width: 100px;
   height: 100px;
 }
