@@ -21,6 +21,7 @@ body{
 
 #contents_left{
   background-color: #8856a1;
+  position: relative;
   float: left;/
   width: 100px;
   height: 100px;
@@ -42,7 +43,6 @@ body{
 
 #side_right{
   background-color: #97d007;
-  clear: both;
   float: right;
   width: 100px;
   height: 100px;
