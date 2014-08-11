@@ -14,38 +14,30 @@ body{
 
 #container{
   background-color: #51b11d;
-  float: left;
   width: 100px;
   height: 100px;
 }
 
 #contents_left{
   background-color: #8856a1;
-  position: relative;
-  float: left;/
   width: 100px;
   height: 100px;
 }
 
 #contents{
   background-color: #5389e6;
-  float: right;
   width: 100px;
   height: 100px;
 }
 
 #side_left{
   background-color: #f19c99;
-  position: relative;
-  clear: both;
-  float: left;
   width: 100px;
   height: 100px;
 }
 
 #side_right{
   background-color: #97d007;
-  float: right;
   width: 100px;
   height: 100px;
 }
