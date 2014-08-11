@@ -18,16 +18,20 @@ body{
 
 #contents_left{
   background-color: #8856a1;
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100px;
-  height: 200px;
+  height: 824px;
 }
 
 #contents{
   background-color: #5389e6;
-  float: right;
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 100;
+  width: 824px;
+  height: 720px;
 }
 
 #side_right{
