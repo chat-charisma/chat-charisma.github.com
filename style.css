@@ -22,12 +22,12 @@ body{
   background-color: #8856a1;
   float: left;
   width: 100px;
-  height: 100px;
+  height: 200px;
 }
 
 #contents{
   background-color: #5389e6;
-  margin: top;
+  clear: both;
   float: right;
   width: 100px;
   height: 100px;
