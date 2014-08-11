@@ -1,9 +1,6 @@
 @charset "utf-8"
 
 body{
-  background-color: #00eddc;
-  width: 1024px;
-  height: 2048px;
 }
 
 #top{
@@ -37,7 +34,7 @@ body{
   background-color: #97d007;
   float: right;
   width: 100px;
-  height: 1848px;
+  height: 824px;
 }
 
 #botton{
