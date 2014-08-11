@@ -1,6 +1,7 @@
 @charset "utf-8"
 
 body{
+  position: absolute;
 }
 
 #top{
@@ -19,7 +20,7 @@ body{
 #contents_left{
   background-color: #8856a1;
   position: absolute;
-  top: 0;
+  top: 100;
   left: 0;
   width: 100px;
   height: 824px;
@@ -28,7 +29,7 @@ body{
 #contents{
   background-color: #5389e6;
   position: absolute;
-  top: 0;
+  top: 100;
   left: 100;
   width: 824px;
   height: 720px;
