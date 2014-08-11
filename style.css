@@ -21,7 +21,7 @@ body{
 
 #contents_left{
   background-color: #8856a1;
-  float: left;
+  /*float: left;*/
   width: 300px;
   height: 250px;
 }
