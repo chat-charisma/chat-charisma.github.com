@@ -21,14 +21,14 @@ body{
 
 #contents_left{
   background-color: #8856a1;
-  /*float: left;*/
+  float: left;
   width: 300px;
   height: 250px;
 }
 
 #contents{
   background-color: #5389e6;
-  /*float: right;*/
+  float: right;
   width: 424px;
   height: 3896px;
 }
