@@ -19,7 +19,6 @@ body{
 
 #contents_left{
   background-color: #8856a1;
-  /*position: left;*/
   float: left;
   width: 100px;
   height: 824px;
@@ -27,6 +26,7 @@ body{
 
 #contents{
   background-color: #5389e6;
+  margin: top;
   float: left;
   width: 824px;
   height: 600px;
