@@ -21,14 +21,14 @@ body{
   /*position: left;*/
   float: left;
   width: 100px;
-  height: 200px;
+  height: 824px;
 }
 
 #contents{
   background-color: #5389e6;
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 824px;
+  height: 600px;
 }
 
 #side_right{
