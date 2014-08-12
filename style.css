@@ -1,19 +1,19 @@
 @charset "utf-8"
 
 body{
-  width: 1024px;
+  width: 1028px;
 }
 
 #top{
   background-color: #fff2cc;
-  width: 1024px;
+  width: 1028px;
   height: 100px;
 }
 
 #container{
   background-color: #51b11d;
   float: left;
-  width: 1024px;
+  width: 1028px;
   height: 824px;
 }
 
@@ -36,13 +36,13 @@ body{
   background-color: #97d007;
   margin-top: 0px;
   float: right;
-  width: 72px;
+  width: 76px;
   height: 824px;
 }
 
 #botton{
   background-color: #f19c99;
   clear: both;
-  width: 1024px;
+  width: 1028px;
   height: 100px;
 }
