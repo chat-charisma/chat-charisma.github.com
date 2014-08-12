@@ -76,7 +76,7 @@
 
     function getScrollCenter() {
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
-        var width = window.width();
+        var width = $(window).width();
         var left = (width - yad_width) / 2;
         return left + parseInt(scrLeft);
     }
