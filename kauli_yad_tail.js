@@ -4,6 +4,7 @@
     if(location.host.indexOf(yad_host) >= 0) { return; }
 
     var yad_style;
+    var yad_width;
     var yad_height;
     var pre_scroll_top;
     var timer = 0;
@@ -28,7 +29,8 @@
         if(!script) { return; }
         var u = urls();
         var s = Number(script.getAttribute('data-s'));
-        var w = Number(script.getAttribute('data-w'));
+        /*var w = Number(script.getAttribute('data-w'));*/
+        yad_width = Number(script.getAttribute('data-w'));
         yad_height = Number(script.getAttribute('data-h'));
         var cs = (d.all ? d.charset : d.characterSet).toLowerCase();
         var t = new Date().getTime();
@@ -70,12 +72,20 @@
         return d.body.scrollTop || d.documentElement.scrollTop;
     }
 
+    function getScrollCenter() {
+        var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
+        var width = window.innerWidth;
+        var left = (width - yad_width) /2;
+        return left + parseInt(scrLeft);
+    }
+
     createTags();
     if(!yad_style) { return; }
 
     if(window.innerHeight >= d.body.scrollHeight - yad_height) {
         setTimeout(function() {
             yad_style.top = '0';
+            yad_style.left = getScrollCenter();
             displayYad();
         }, 5000);
     } else {
@@ -84,11 +94,13 @@
             scroll_top = getScrollTop();
             if(scroll_top > pre_scroll_top && scroll_top > yad_height) {
                 yad_style.top = '0';
+                yad_style.left = getScrollCenter();
                 yad_style.bottom = 'auto';
                 displayYad();
             }
             if(scroll_top < pre_scroll_top && scroll_top + window.innerHeight < d.body.scrollHeight - yad_height) {
                 yad_style.top = 'auto';
+                yad_style.left = getScrollCenter();
                 yad_style.bottom = '0';
                 displayYad();
             }
