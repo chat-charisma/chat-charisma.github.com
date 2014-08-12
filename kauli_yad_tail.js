@@ -76,7 +76,7 @@
 
     function getScrollCenter() {
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
-        var width = window.innerWidth;
+        var width = window.width();
         var left = (width - yad_width) / 2;
         return left + parseInt(scrLeft);
     }
@@ -88,6 +88,7 @@
         setTimeout(function() {
             yad_style.top = '0';
             yad_style.left = getScrollCenter();
+            yad_style.right = 'auto';
             displayYad();
         }, 5000);
     } else {
@@ -97,12 +98,14 @@
             if(scroll_top > pre_scroll_top && scroll_top > yad_height) {
                 yad_style.top = '0';
                 yad_style.left = getScrollCenter();
+                yad_style.right = 'auto';
                 yad_style.bottom = 'auto';
                 displayYad();
             }
             if(scroll_top < pre_scroll_top && scroll_top + window.innerHeight < d.body.scrollHeight - yad_height) {
                 yad_style.top = 'auto';
                 yad_style.left = getScrollCenter();
+                yad_style.right = 'auto';
                 yad_style.bottom = '0';
                 displayYad();
             }
