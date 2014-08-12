@@ -78,6 +78,9 @@
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
         var width = window.innerWidth;
         var left = (width - yad_width) / 2;
+        alert(scrLeft);
+        alert(width);
+        alert(left);
         return left + parseInt(scrLeft);
     }
 
