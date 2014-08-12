@@ -26,7 +26,7 @@ body{
 
 #contents{
   background-color: #5389e6;
-  margin: top;
+  margin-top: 0px;
   float: left;
   width: 824px;
   height: 600px;
