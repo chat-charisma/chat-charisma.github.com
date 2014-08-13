@@ -25,6 +25,15 @@
         }
     }
 
+    function getScrollLeft() {
+        var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
+        var width = window.innerWidth;
+        return (width - yad_width) / 4;
+        /*return left + parseInt(scrLeft);*/
+    }
+
+    pre_scroll_left = getScrollLeft();
+
     function createTags() {
         var script = d.getElementById('kauli_yad_tail');
         if(!script) { return; }
@@ -75,18 +84,9 @@
         return d.body.scrollTop || d.documentElement.scrollTop;
     }
 
-    function getScrollLeft() {
-        var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
-        var width = window.innerWidth;
-        return (width - yad_width) / 4;
-        /*return left + parseInt(scrLeft);*/
-    }
-
     createTags();
     if(!yad_style) { return; }
 
-    pre_scroll_left = getScrollLeft();
-    alert(pre_scroll_left);
     if(window.innerHeight >= d.body.scrollHeight - yad_height) {
         setTimeout(function() {
             yad_style.top = '0';
