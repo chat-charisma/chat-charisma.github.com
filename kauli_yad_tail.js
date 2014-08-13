@@ -88,7 +88,7 @@
         setTimeout(function() {
             yad_style.top = '0';
             yad_style.left = getScrollCenter();
-            alert(yad_style.left);
+            /*alert(yad_style.left);*/
             yad_style.right = 'auto';
             displayYad();
         }, 5000);
@@ -100,7 +100,7 @@
                 yad_style.top = '0';
                 yad_style.bottom = 'auto';
                 yad_style.left = getScrollCenter();
-                alert(yad_style.left);
+                /*alert(yad_style.left);*/
                 yad_style.right = 'auto';
                 displayYad();
             }
@@ -108,7 +108,7 @@
                 yad_style.top = 'auto';
                 yad_style.bottom = '0';
                 yad_style.left = getScrollCenter();
-                alert(yad_style.left);
+                /*alert(yad_style.left);*/
                 yad_style.right = 'auto';
                 displayYad();
             }
