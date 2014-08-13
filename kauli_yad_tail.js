@@ -78,7 +78,8 @@
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
         var width = window.innerWidth;
         var left = (width - yad_width) / 2;
-        return left + parseInt(scrLeft);
+        /*return left + parseInt(scrLeft);*/
+        return left / 2;
     }
 
     createTags();
