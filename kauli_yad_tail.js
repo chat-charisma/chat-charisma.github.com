@@ -7,7 +7,7 @@
     var yad_width;
     var yad_height;
     var pre_scroll_top;
-    var pre_scroll_left;
+    var pre_scroll_left = 0;
     var timer = 0;
     var fadeout_cnt = 0;
 
@@ -28,7 +28,7 @@
     function getScrollLeft() {
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
         var width = window.innerWidth;
-        return (width - yad_width) / 4;
+        return int((width - yad_width) / 4);
         /*return left + parseInt(scrLeft);*/
     }
 
