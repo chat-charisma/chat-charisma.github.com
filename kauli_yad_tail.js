@@ -75,13 +75,12 @@
     }
 
     function getScrollCenter() {
-        var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
+        /*var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;*/
         var width = window.innerWidth;
-        alert(scrLeft);
-        alert(width);
-        alert(yad_width);
-        var left = (width - yad_width) / 2;
-        return (left + parseInt(scrLeft)) / 2;
+        /*alert(width);*/
+        /*alert(yad_width);*/
+        return (width - yad_width) / 2;
+        /*return (left + parseInt(scrLeft)) / 2;*/
     }
 
     createTags();
