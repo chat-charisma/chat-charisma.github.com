@@ -28,7 +28,7 @@
         /*var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;*/
         var width = window.innerWidth;
         var leftposition = ((width - yad_width) / 2);
-        return leftposition;
+        return Number(leftposition);
     }
 
     function createTags() {
