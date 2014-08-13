@@ -86,6 +86,7 @@
     if(!yad_style) { return; }
 
     pre_scroll_left = getScrollLeft();
+    alert(pre_scroll_left);
     if(window.innerHeight >= d.body.scrollHeight - yad_height) {
         setTimeout(function() {
             yad_style.top = '0';
