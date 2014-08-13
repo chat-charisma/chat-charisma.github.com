@@ -57,8 +57,8 @@
         yad_style.position = 'fixed';
         pre_scroll_left = getScrollLeft();
         alert(pre_scroll_left);
-        alert(parseInt(pre_scroll_left));
-        yad_style.left = parseInt(pre_scroll_left);
+        alert(parseInt(pre_scroll_left) + "px");
+        yad_style.left = parseInt(pre_scroll_left) + "px";
         /*yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + w + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';*/
         yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + yad_width + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';
         d.body.appendChild(yad);
