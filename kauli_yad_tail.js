@@ -24,13 +24,6 @@
         }
     }
 
-    function getScrollCenter() {
-        /*var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;*/
-        var width = window.innerWidth;
-        var leftposition = ((width - yad_width) / 2);
-        return Number(leftposition);
-    }
-
     function createTags() {
         var script = d.getElementById('kauli_yad_tail');
         if(!script) { return; }
@@ -53,6 +46,7 @@
         yad_style.display = 'inline-block';
         yad_style.visibility = 'hidden';
         yad_style.position = 'fixed';
+        yad_style.left = '0';
         /*yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + w + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';*/
         yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + yad_width + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';
         d.body.appendChild(yad);
@@ -78,6 +72,13 @@
 
     function getScrollTop() {
         return d.body.scrollTop || d.documentElement.scrollTop;
+    }
+
+    function getScrollCenter() {
+        /*var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;*/
+        var width = window.innerWidth;
+        var leftposition = ((width - yad_width) / 2);
+        return Number(leftposition);
     }
 
     createTags();
