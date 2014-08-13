@@ -81,7 +81,6 @@
         var leftposition = "'" + ((width - yad_width) / 2) + "'";
         return leftposition;
         */
-        alert("'" + ((width - yad_width) / 2) + "px'");
         return yad_style.left = "'" + ((width - yad_width) / 2) + "px'";
     }
 
@@ -92,7 +91,7 @@
         setTimeout(function() {
             yad_style.top = '0';
             /*yad_style.left = getScrollCenter();*/
-            getScrollCenter();
+            alert(getScrollCenter());
             /*alert(yad_style.left);*/
             yad_style.right = 'auto';
             displayYad();
@@ -105,7 +104,7 @@
                 yad_style.top = '0';
                 yad_style.bottom = 'auto';
                 /*yad_style.left = getScrollCenter();*/
-                getScrollCenter();
+                alert(getScrollCenter());
                 displayYad();
             }
             if(scroll_top < pre_scroll_top && scroll_top + window.innerHeight < d.body.scrollHeight - yad_height) {
