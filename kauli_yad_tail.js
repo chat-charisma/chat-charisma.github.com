@@ -91,7 +91,7 @@
     if(window.innerHeight >= d.body.scrollHeight - yad_height) {
         setTimeout(function() {
             yad_style.top = '0';
-            alert(getScrollCenter());
+            getScrollCenter();
             yad_style.right = 'auto';
             displayYad();
         }, 5000);
@@ -102,7 +102,7 @@
             if(scroll_top > pre_scroll_top && scroll_top > yad_height) {
                 yad_style.top = '0';
                 yad_style.bottom = 'auto';
-                alert(getScrollCenter());
+                getScrollCenter();
                 displayYad();
             }
             if(scroll_top < pre_scroll_top && scroll_top + window.innerHeight < d.body.scrollHeight - yad_height) {
