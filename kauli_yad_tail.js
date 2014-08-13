@@ -77,8 +77,8 @@
     function getScrollCenter() {
         /*var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;*/
         var width = window.innerWidth;
-        alert(width);
-        alert(yad_width);
+        /*alert(width);*/
+        /*alert(yad_width);*/
         var leftposition = ((width - yad_width) / 2);
         return leftpositon;
         /*return (left + parseInt(scrLeft)) / 2;*/
@@ -101,6 +101,7 @@
                 yad_style.top = '0';
                 yad_style.left = getScrollCenter();
                 yad_style.bottom = 'auto';
+                alert(yad_style);
                 displayYad();
             }
             if(scroll_top < pre_scroll_top && scroll_top + window.innerHeight < d.body.scrollHeight - yad_height) {
