@@ -81,7 +81,7 @@
         var leftposition = "'" + ((width - yad_width) / 2) + "'";
         return leftposition;
         */
-        return yad_style.left = "'" + ((width - yad_width) / 2) + "'";
+        return yad_style.left = "'" + ((width - yad_width) / 2) + "px'";
     }
 
     createTags();
