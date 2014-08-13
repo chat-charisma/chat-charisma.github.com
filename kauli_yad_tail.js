@@ -79,8 +79,8 @@
         var width = window.innerWidth;
         alert(width);
         alert(yad_width);
-        alert((width - yad_width) / 2);
-        return (width - yad_width) / 2;
+        var leftposition = ((width - yad_width) / 2);
+        return leftpositon;
         /*return (left + parseInt(scrLeft)) / 2;*/
     }
 
