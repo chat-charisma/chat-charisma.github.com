@@ -28,7 +28,7 @@
     function getScrollLeft() {
         var scrLeft = d.body.scrollLeft || d.documentElement.scrollLeft;
         var width = window.innerWidth;
-        return int((width - yad_width) / 4);
+        return ((width - yad_width) / 4).val();
         /*return left + parseInt(scrLeft);*/
     }
 
