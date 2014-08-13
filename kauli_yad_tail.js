@@ -81,6 +81,7 @@
         var leftposition = "'" + ((width - yad_width) / 2) + "'";
         return leftposition;
         */
+        alert("'" + ((width - yad_width) / 2) + "px'");
         return yad_style.left = "'" + ((width - yad_width) / 2) + "px'";
     }
 
