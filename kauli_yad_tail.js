@@ -26,6 +26,7 @@
     }
 
     function getScrollLeft() {
+        pre_scroll_left = 0;
         var width = window.innerWidth;
         return (width - yad_width) / 2;
     }
