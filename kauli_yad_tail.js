@@ -33,6 +33,7 @@
     }
 
     pre_scroll_left = getScrollLeft();
+    alert(pre_scroll_left);
 
     function createTags() {
         var script = d.getElementById('kauli_yad_tail');
