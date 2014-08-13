@@ -80,7 +80,7 @@
         /*alert(width);*/
         /*alert(yad_width);*/
         var leftposition = ((width - yad_width) / 2);
-        return leftpositon;
+        return leftposition;
         /*return (left + parseInt(scrLeft)) / 2;*/
     }
 
