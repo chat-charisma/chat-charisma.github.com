@@ -5,7 +5,9 @@
 
     var yad_style;
     var yad_height;
+    var yad_width;
     var pre_scroll_top;
+    var pre_scroll_left;
     var timer = 0;
     var fadeout_cnt = 0;
 
@@ -30,10 +32,11 @@
         var s = Number(script.getAttribute('data-s'));
         var w = Number(script.getAttribute('data-w'));
         yad_height = Number(script.getAttribute('data-h'));
+        yad_width = Number(script.getAttribute('data-w'));
         var cs = (d.all ? d.charset : d.characterSet).toLowerCase();
         var t = new Date().getTime();
         if(s < 9000) { return; }
-        var query = 'u=' + encodeURIComponent(u.url) + '&r='+ encodeURIComponent(u.rurl) + '&s=' + s + '&z=' + w + 'x' + yad_height + '&c=1&cs=' + cs + '&p=0-0&t=' + t;
+        var query = 'u=' + encodeURIComponent(u.url) + '&r='+ encodeURIComponent(u.rurl) + '&s=' + s + '&z=' + yad_width + 'x' + yad_height + '&c=1&cs=' + cs + '&p=0-0&t=' + t;
         if(typeof(__kauli_motime__) != 'undefined') {
             query += '&motime=' + parseInt(__kauli_motime__, 10);
         }
@@ -43,8 +46,9 @@
         yad_style.display = 'inline-block';
         yad_style.visibility = 'hidden';
         yad_style.position = 'fixed';
-        yad_style.left = '0';
-        yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + w + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';
+        pre_scroll_left = getScrollLeft();
+        yad_style.left = parseInt(pre_scroll_left) + "px";
+        yad.innerHTML = '<iframe name="' + t + '" id="kauli_s_' + s + '" src="' + iframe_src + '" width="' + yad_width + '" height="' + yad_height + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';
         d.body.appendChild(yad);
     }
 
@@ -69,6 +73,17 @@
     function getScrollTop() {
         return d.body.scrollTop || d.documentElement.scrollTop;
     }
+
+    function getScrollLeft() {
+        pre_scroll_left = 0;           
+        var width = window.innerWidth;
+        return (width - yad_width) / 2;
+    }
+    
+    window.onresize=function(){
+        pre_scroll_left = getScrollLeft();
+        yad_style.left = parseInt(pre_scroll_left) + "px";
+    };
 
     createTags();
     if(!yad_style) { return; }
