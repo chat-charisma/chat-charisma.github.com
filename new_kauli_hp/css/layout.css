@@ -1,0 +1,306 @@
+@charset "utf-8";
+/* -------------------------------------------------- 
+	Copyright: (c)visual and echo japan
+	Created: 2014-12-11
+ -------------------------------------------------- */
+
+/*----------------------------------------------------
+ common
+--------------------------------------------------- */
+html, body {
+	width: 100%;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color:#fff;
+	line-height:1.6;
+	font-size:12px;
+	-webkit-text-size-adjust:100%;
+	background-color: #28282d;
+}
+
+/*----------------------------------------------------
+ link
+--------------------------------------------------- */
+a:link,a:visited,a:active,a:hover{
+	color:#fff;
+	text-decoration:none;
+}
+/*----------------------------------------------------
+	#wrapper
+--------------------------------------------------- */
+#wrapper {
+	width: 100%;
+	min-width: 1280px;
+	background-color: #28282d;
+}
+/*----------------------------------------------------
+	area
+--------------------------------------------------- */
+.area {
+	width:1280px;
+	margin:0px auto;
+}
+/*----------------------------------------------------
+	#header
+--------------------------------------------------- */
+#header {
+	width: 100%;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+#header #topNavi {
+	width: 100%;
+	background-color: #3c3c41;
+}
+#header #topNavi ul {
+	width: 1140px;
+	padding: 5px 0;
+	margin: 0 auto;
+	overflow: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+	}
+#header #topNavi ul li a {
+	display: block;
+	float: right;
+	margin-right: 57px;
+	background: url(../images/topnavi_arrow_white.png) no-repeat center right;
+	padding-right: 12px;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	overflow: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+#header #topNavi ul li a.topNaviLast {
+	margin-right: 0;
+}
+#header #topNavi ul li a:hover {
+	background: url(../images/topnavi_arrow_blue.png) no-repeat center right;
+	color: #50c8f0;
+}
+
+#header #headerInner {
+	width: 1140px;
+	margin: 0 auto;
+	position: relative;
+}
+#header #headerInner #logo {
+	position: absolute;
+	top: -10px;
+	left: 0;
+}
+#header #headerInner #gNavi {
+	padding: 15px 0;
+}
+#header #headerInner #gNavi ul {
+	overflow: hidden;
+}
+#header #headerInner #gNavi ul li {
+	background: url(../images/navi_brdr_slash.png) no-repeat center right;
+	padding-right: 57px;
+	margin-right: 57px;
+	float: right;
+}
+#header #headerInner #gNavi ul li.gNaviLast {
+	background: none;
+	padding-right: 0;
+	margin-right: 0;
+}
+#header #headerInner #gNavi ul li a {
+	display: block;
+	float: right;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 1.2;
+	background: url(../images/gnavi_arrow_black.png) no-repeat center bottom;
+	padding-bottom: 10px;
+}
+#header #headerInner #gNavi ul li#recruit {
+	display: block;
+	float: right;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: #d8d8d8;
+	line-height: 1.2;
+	background: url(../images/gnavi_arrow_black.png) no-repeat center bottom;
+	padding-bottom: 10px;
+}
+#header #headerInner #gNavi ul li a span {
+	font-size: 11px;
+	color: #50c8f0;
+}
+#header #headerInner #gNavi ul li#recruit span {
+	font-size: 11px;
+}
+#header #headerInner a:link,#header #headerInner a:visited,#header #headerInner a:active {
+	color:#3c3c41;
+	text-decoration:none;
+}
+#header #headerInner #gNavi ul li a:hover {
+	background: url(../images/gnavi_arrow_blue.png) no-repeat center bottom;
+	color: #50c8f0;
+}
+#header #headerInner #gNavi ul li#productBtn p {
+	display: block;
+	float: right;
+	color:#3c3c41;
+	cursor: pointer;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 1.2;
+	background: url(../images/gnavi_arrow_black.png) no-repeat center bottom;
+	padding-bottom: 10px;
+}
+#header #headerInner #gNavi ul li#productBtn p span {
+	font-size: 11px;
+	color: #50c8f0;
+}
+#header #headerInner #gNavi ul li#productBtn p:hover {
+	background: url(../images/gnavi_arrow_blue.png) no-repeat center bottom;
+	color: #50c8f0;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu {
+	display: none;
+	background-color: #28282d;
+	overflow: visible;
+	position: absolute;
+	top: 76px;
+	left: 680px;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	overflow: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu li {
+	float: none;
+	background: none;
+	padding-right: 0;
+	margin-right: 0;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu li a {
+	display: block;
+	float: none;
+	text-align: center;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 1.2;
+	background: none;
+	padding-bottom: 10px;
+	margin: 15px;
+	border-bottom: 1px solid #fff;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	overflow: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu li#productMenuLast a {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu li a:link,#header #headerInner #gNavi ul li#productBtn ul#productMenu li a:visited,#header #headerInner #gNavi ul li#productBtn ul#productMenu li a:active {
+	color:#fff;
+	text-decoration:none;
+}
+#header #headerInner #gNavi ul li#productBtn ul#productMenu li a:hover {
+	color: #50c8f0;
+}
+/*----------------------------------------------------
+	button
+----------------------------------------------------*/
+.button {
+	display: inline-block;
+	width: 160px;
+	height: 28px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 28px;
+	outline: none;
+	background-color: #fff;
+	border: 1px solid #000;
+	color: #000 !important;
+	line-height: 28px;
+}
+.button:hover {
+	background-color: #000;
+	color: #fff !important;
+}
+
+
+/*----------------------------------------------------
+	#footer
+----------------------------------------------------*/
+#footer {
+	width: 1140px;
+	margin: 0 auto;
+	overflow:hidden;
+	padding: 20px 70px;
+	background-color: #3c3c41;
+}
+#footer #footerLeft {
+	float: left;
+}
+#footer #footerLeft ul {
+	overflow: hidden;
+}
+#footer #footerLeft ul li {
+	float: left;
+	text-align: center;
+	padding: 0 19px 0 0;
+	margin: 0 19px 0 0;
+	border-right: 1px solid #fff;
+}
+#footer #footerLeft ul li a:hover {
+	text-decoration: underline;
+}
+#footer #footerLeft ul li#footerLeftLast {
+	padding: 0;
+	margin: 0;
+	border-right: none;
+}
+#footer #footerLeft #copyright {
+	font-size: 11px;
+	float: left;
+	margin-top: 10px;
+}
+#footer #footerRight {
+	float: right;
+}
+#footer #footerRight a:link,#footer #footerRight a:visited,#footer #footerRight a:active {
+	color:#000;
+	text-decoration:none;
+}
+#footer #footerRight #toService {
+	float: left;
+	background-color: #fff;
+	margin: 5px 10px 0 0;
+	font-weight: bold;
+}
+#footer #footerRight #toFacebook {
+	float: left;
+	background-color: #fff;
+	margin: 5px 20px 0 0;
+	font-weight: bold;
+}
+#footer #footerRight #toService a,#footer #footerRight #toFacebook a {
+	display: block;
+	padding: 4px 15px;
+}
+#footer #footerRight #toService a:hover,#footer #footerRight #toFacebook a:hover {
+	background-color: #000;
+	color: #fff;
+}
+#pageTop {
+	display: none;
+	position: fixed;
+	bottom: 30px;
+	right: 35px;
+}

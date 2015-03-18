@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* -------------------------------------------------- 
+	Copyright: (c)visual and echo japan
+	Created: 2014-12-11
+ -------------------------------------------------- */
+ 
+/*----------------------------------------------------
+	#section
+----------------------------------------------------*/
+
+/*--------#sec01----------*/
+#sec01 {
+	margin-top: -109px;
+	padding-top: 106px
+}
+#sec01 h2 {
+	width: 1280px;
+	margin: 107px auto 0;
+	padding: 45px 0;
+	text-align: center;
+	background-color: #00b4f0;
+}
+#sec01 .secInner {
+	width: 1080px;
+	margin: 0 auto 20px;
+	padding: 50px 100px 60px;
+	position: relative;
+	overflow: hidden;
+	background-color: #3c3c41;
+}
+#sec01 .gaBox01 {
+	overflow: hidden;
+	margin-bottom: 75px;
+}
+#sec01 .gaBox02 {
+	overflow: hidden;
+}
+#sec01 .gaBox02 .w460 {
+	width: 460px;
+}
+#sec01 h3 {
+	float: left;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 15px;
+	line-height: 1.4;
+}
+#sec01 h3 span {
+	font-size: 11px;
+}
+#sec01 .gaBody {
+	width: 780px;
+	float: right;
+}
+#sec01 .gaBody p {
+	font-size: 13px;
+}
+#sec01 .gaBody a:link,#sec01 .gaBody a:visited,#sec01 .gaBody a:active {
+	text-decoration: underline;
+}
+#sec01 .gaBody a:hover {
+	text-decoration: none;
+}
+#sec01 .gaBody h4 {
+	font-size: 16px;
+	font-weight: normal;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 3px;
+	margin-bottom: 30px;
+}
+#sec01 .gaBody .smallTitle {
+	font-size: 14px;
+	padding-bottom: 5px;
+}
+#sec01 .gaBody .smallText {
+	font-size: 11px;
+	color: #c8c8c8;
+}
+
+
+
+
+
+
