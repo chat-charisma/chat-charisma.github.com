@@ -68,8 +68,9 @@
     ad.style.background = '#333333';
     ad.style.top = 0;
     ad.style.left = 0;
+    ad.style.lineHeight = 0;
     ad.style.zIndex = 10000;
-   
+
     var cs = (d.all ? d.charset : d.characterSet).toLowerCase();
     var t = new Date().getTime();
     var u = (function() {
@@ -91,6 +92,7 @@
         query += '&motime=' + parseInt(__kauli_motime__, 10);
     }
     var iframe_src = 'http://' + spotId + '.' + YAD_HOST + '/?' + query;
+    // var iframe_src = 'iframe320x50.html';
     ad.innerHTML = '<iframe name="' + t + '" id="kauli_overlay" src="' + iframe_src + '" width="' + width + '" height="' + height + '" scrolling="no" frameborder="0" allowtransparency="true" style="vertical-align: text-buttom;"></iframe>';
   
     d.body.appendChild(ad);
@@ -105,7 +107,7 @@
     btn.style.fontSize = '20px';
     btn.style.color = '#363636';
     btn.style.padding = '6px 10px';
-    btn.style.opacity = 0.1;
+    btn.style.opacity = 0.8;
     btn.addEventListener('click', function() {
       ad.remove(); 
     },false);
@@ -116,7 +118,7 @@
     // インスタンスが1度しか生成されない前提なので prototype で関数を定義していません
     var self = this;
     this.show = function() {
-      if (self.el && self.enable) {
+      if (self.el && self.enable && self.el.style.visibility === 'hidden') {
         self.el.style.visibility = 'visible';
         self.el.style.opacity = 0;
         for (var i = 0; i < 10; i++) {
@@ -142,6 +144,7 @@
     this.moveTop = function() {
       if (self.el) {
         self.el.style.top = 0;
+        self.transformOrigin('top center');
       }
     };
     this.moveBottom = function() {
@@ -149,6 +152,7 @@
         var clientHeight = d.documentElement.clientHeight;
         var top = clientHeight - self.height;
         self.el.style.top = top > 0 ? parseInt(top, 10) + 'px' : 0;
+        self.transformOrigin('bottom center');
       }
     };
     this.moveAuto = function() {
@@ -160,11 +164,23 @@
           self.moveTop();
         }
         else {
-          self.moveTop();
           self.moveBottom();
         }
       }
     };
+    this.transform = function(scale) {
+      var style = self.el.style;
+      scale = scale < 1.5 ? scale : 1.5; // 拡大率は最大1.5
+      style.transform = style.webkitTransform = 'scale(' + scale + ')';
+    };
+    this.transformOrigin = function(origin) {
+      var style = self.el.style;
+      style.transformOrigin = style.webkitTransformOrigin = origin;
+    };
+    this.autoFit = function() {
+      var scale = d.documentElement.clientWidth / self.width;
+      self.transform(scale.toFixed(2));
+    }
   };
 
   // main
@@ -177,6 +193,9 @@
   var overlay = new Overlay(spotId, width, height);
   overlay.moveCenter();
   overlay.moveAuto();
+  if (type !== "d") {
+    overlay.autoFit();
+  }
   overlay.show();
 
   // 通常媒体、保守的媒体向け
@@ -190,7 +209,7 @@
      
     // タッチしている間非表示 
     d.addEventListener('touchstart', overlay.hide, false);
-    d.addEventListener('touchend', overlay.show, false);
+    d.addEventListener('touchend', function() { delay(overlay.show, 100); }, false);
   }
   
   // スクロール位置(画面下部かどうか)によって表示位置を切り替える
@@ -200,15 +219,18 @@
   var event = navigator.userAgent.match(/(iPhone|iPod|iPad)/) ? 'orientationchange' : 'resize';
   var event = 'resize';
   window.addEventListener(event, debounce(function() {
+    if (type !== "d") {
+      overlay.autoFit();
+    }
     overlay.moveCenter();
     overlay.moveAuto();
   }, 100), false);
 
   // 向きの概念が存在しないならここで終了
-  if (window.matchMedia("(orientation: portrait)").matches || window.matchMedia("(orientation: landscape)").matches) {
+  if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(orientation: landscape)").matches) {
     return;
   }
-
+  
   var handleOrientationChange = function (mql) {
     // portrait
     if (mql.matches) {
@@ -217,7 +239,7 @@
     }
     // landscape
     else {
-      if (["c", "d"].indexOf(type) !== 1) {
+      if (["c", "d"].indexOf(type) !== -1) {
         overlay.enable = false;
         overlay.hide();
       }
