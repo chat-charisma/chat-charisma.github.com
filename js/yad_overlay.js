@@ -45,6 +45,8 @@
     };
   };
 
+  var isIOS = navigator.userAgent.match(/(iPhone|iPod|iPad)/);
+
   var LazyTimer = function() {
     var timerId;
     this.do = function(callback) {
@@ -55,15 +57,15 @@
     };
   };
  
-  var Overlay = function(spotId, width, height) {
-    this.devicePixelRatio =  window.devicePixelRatio || 1;
+  var Overlay = function(spotId, width, height, marginBottom) {
     this.width = width || 320;
     this.height = height || 50;
+    this.marginBottom = marginBottom || 0;
     this.enable = true;
     
     var ad = d.createElement('div');
     ad.setAttribute("id", "ad");
-    ad.style.visibility = 'visible';
+    ad.style.visibility = 'hidden';
     ad.style.position = 'fixed';
     ad.style.background = '#333333';
     ad.style.top = 0;
@@ -121,10 +123,10 @@
       if (self.el && self.enable && self.el.style.visibility === 'hidden') {
         self.el.style.visibility = 'visible';
         self.el.style.opacity = 0;
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 20; i++) {
           delay((function(i) {
             return function() {
-              self.el.style.opacity = 0.1 * (i+1);
+              self.el.style.opacity = 0.05 * (i+1);
             }
           })(i), i * 50);
         }
@@ -150,7 +152,7 @@
     this.moveBottom = function() {
       if (self.el) {
         var clientHeight = d.documentElement.clientHeight;
-        var top = clientHeight - self.height;
+        var top = window.innerHeight - self.height - self.marginBottom;
         self.el.style.top = top > 0 ? parseInt(top, 10) + 'px' : 0;
         self.transformOrigin('bottom center');
       }
@@ -190,7 +192,8 @@
   var width = Number(script.getAttribute('data-w'));
   var height = Number(script.getAttribute('data-h'));
 
-  var overlay = new Overlay(spotId, width, height);
+  var marginBottom = type === "a" ? 44 : 0;
+  var overlay = new Overlay(spotId, width, height, marginBottom);
   overlay.moveCenter();
   overlay.moveAuto();
   if (type !== "d") {
@@ -216,8 +219,7 @@
   d.addEventListener('scroll', debounce(overlay.moveAuto, 100), false);
 
   // ウィンドウサイズの変化に対応する 
-  var event = navigator.userAgent.match(/(iPhone|iPod|iPad)/) ? 'orientationchange' : 'resize';
-  var event = 'resize';
+  var event = isIOS ? 'orientationchange' : 'resize';
   window.addEventListener(event, debounce(function() {
     if (type !== "d") {
       overlay.autoFit();
@@ -225,7 +227,14 @@
     overlay.moveCenter();
     overlay.moveAuto();
   }, 100), false);
-
+ 
+  // iOS 8.0 のバーニョキニョキ問題 
+  if (isIOS) {
+    // このイベントは多発しない
+    window.addEventListener('resize', function() {
+      overlay.moveAuto();
+    });
+  }
   // 向きの概念が存在しないならここで終了
   if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(orientation: landscape)").matches) {
     return;
