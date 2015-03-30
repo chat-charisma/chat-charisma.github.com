@@ -147,6 +147,8 @@
       if (self.el) {
         self.el.style.top = 0;
         self.transformOrigin('top center');
+        btn.style.top = 'auto';
+        btn.style.bottom = '-35px';
       }
     };
     this.moveBottom = function() {
@@ -155,6 +157,8 @@
         var top = window.innerHeight - self.height - self.marginBottom;
         self.el.style.top = top > 0 ? parseInt(top, 10) + 'px' : 0;
         self.transformOrigin('bottom center');
+        btn.style.top = '-35px';
+        btn.style.bottom = 'auto';
       }
     };
     this.moveAuto = function() {
