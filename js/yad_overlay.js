@@ -148,6 +148,8 @@
         self.el.style.top = 0;
         self.el.style.bottom = 'auto';
         self.transformOrigin('top center');
+        btn.style.top = 'auto';
+        btn.style.bottom = '-35px';
       }
     };
     this.moveBottom = function() {
@@ -155,6 +157,8 @@
         self.el.style.top = 'auto'
         self.el.style.bottom = self.marginBottom + 'px';
         self.transformOrigin('bottom center');
+        btn.style.top = '-35px';
+        btn.style.bottom = 'auto';
       }
     };
     this.moveAuto = function() {
