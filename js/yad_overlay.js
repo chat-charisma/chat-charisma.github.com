@@ -146,19 +146,15 @@
     this.moveTop = function() {
       if (self.el) {
         self.el.style.top = 0;
+        self.el.style.bottom = 'auto';
         self.transformOrigin('top center');
-        btn.style.top = 'auto';
-        btn.style.bottom = '-35px';
       }
     };
     this.moveBottom = function() {
       if (self.el) {
-        var clientHeight = d.documentElement.clientHeight;
-        var top = window.innerHeight - self.height - self.marginBottom;
-        self.el.style.top = top > 0 ? parseInt(top, 10) + 'px' : 0;
+        self.el.style.top = 'auto'
+        self.el.style.bottom = self.marginBottom + 'px';
         self.transformOrigin('bottom center');
-        btn.style.top = '-35px';
-        btn.style.bottom = 'auto';
       }
     };
     this.moveAuto = function() {
