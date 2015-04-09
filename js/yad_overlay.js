@@ -196,7 +196,10 @@
   var width = Number(script.getAttribute('data-w'));
   var height = Number(script.getAttribute('data-h'));
 
-  var marginBottom = type === "a" ? 44 : 0;
+  var marginBottom = 0;
+  if (isIOS) {
+    marginBottom = type === "a" ? 44 : 0;
+  }
   var overlay = new Overlay(spotId, width, height, marginBottom);
   overlay.moveCenter();
   overlay.moveAuto();
