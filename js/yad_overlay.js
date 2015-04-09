@@ -196,10 +196,7 @@
   var width = Number(script.getAttribute('data-w'));
   var height = Number(script.getAttribute('data-h'));
 
-  var marginBottom = 0;
-  if (isIOS) {
-    marginBottom = type === "a" ? 44 : 0;
-  }
+  var marginBottom = type === "a" ? 44 : 0;
   var overlay = new Overlay(spotId, width, height, marginBottom);
   overlay.moveCenter();
   overlay.moveAuto();
@@ -255,10 +252,8 @@
     }
     // landscape
     else {
-      if (["c", "d"].indexOf(type) !== -1) {
-        overlay.enable = false;
-        overlay.hide();
-      }
+      overlay.enable = false;
+      overlay.hide();
     }
   };
 
