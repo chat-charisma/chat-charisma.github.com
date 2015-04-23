@@ -110,9 +110,8 @@
     btn.style.color = '#363636';
     btn.style.padding = '6px 10px';
     btn.style.opacity = 0.8;
-    btn.addEventListener('touchstart', function() {
+    btn.addEventListener('click', function() {
       ad.remove(); 
-      btn.remove();
     },false);
     
     ad.appendChild(btn);
@@ -120,7 +119,7 @@
 
     // インスタンスが1度しか生成されない前提なので prototype で関数を定義していません
     var self = this;
-    this.fadein = function() {
+    this.show = function() {
       if (self.el && self.enable && self.el.style.visibility === 'hidden') {
         self.el.style.visibility = 'visible';
         self.el.style.opacity = 0;
@@ -133,12 +132,6 @@
         }
       }
     };
-    this.show = function() {
-      if (self.el && self.enable && self.el.style.visibility === 'hidden') {
-      self.el.style.visibility = 'visible';
-      self.el.style.opacity = 1;
-      }
-    }
     this.hide = function() {
       if (self.el) {
         self.el.style.visibility = 'hidden';
@@ -203,33 +196,27 @@
   var width = Number(script.getAttribute('data-w'));
   var height = Number(script.getAttribute('data-h'));
 
-  var marginBottom = 0;
-  if (isIOS) {
-    marginBottom = type === "a" ? 44 : 0;
-  }
+  var marginBottom = type === "a" ? 44 : 0;
   var overlay = new Overlay(spotId, width, height, marginBottom);
   overlay.moveCenter();
   overlay.moveAuto();
   if (type !== "d") {
     overlay.autoFit();
   }
-  overlay.fadein();
+  overlay.show();
 
   // 通常媒体、保守的媒体向け
   if (["c", "d"].indexOf(type) !== -1) {
-    if(isIOS){
-      d.addEventListener('touchstart', overlay.hide, false);
-      d.addEventListener('touchend', overlay.show, false);
-    } else {
-     var lazyTimer = new LazyTimer();
-     d.addEventListener('scroll', debounce(function() {
-          overlay.hide();  
-          lazyTimer.do(overlay.fadein);
-        }, 100, true), false);
+    // scroll している間非表示
+    var lazyTimer = new LazyTimer();
+    d.addEventListener('scroll', debounce(function() {
+        overlay.hide();  
+        lazyTimer.do(overlay.show);
+      }, 100, true), false);
      
-      d.addEventListener('touchstart', overlay.hide, false);
-      d.addEventListener('touchend', function() { delay(overlay.fadein, 100); }, false);
-    }
+    // タッチしている間非表示 
+    d.addEventListener('touchstart', overlay.hide, false);
+    d.addEventListener('touchend', function() { delay(overlay.show, 100); }, false);
   }
   
   // スクロール位置(画面下部かどうか)によって表示位置を切り替える
@@ -261,14 +248,12 @@
     // portrait
     if (mql.matches) {
       overlay.enable = true;
-      overlay.fadein();
+      overlay.show();
     }
     // landscape
     else {
-      if (["c", "d"].indexOf(type) !== -1) {
-        overlay.enable = false;
-        overlay.hide();
-      }
+      overlay.enable = false;
+      overlay.hide();
     }
   };
 
