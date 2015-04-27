@@ -2,6 +2,8 @@
 /*global __kauli_motime__*/
 (function(d) {
   var YAD_HOST = 'y.kau.li';
+  var TOP_BAR_HEIGHT = 24;
+  var BOTTOM_BAR_HEIGHT = 44;
  
   // copied from underscore.js
   var now = Date.now || function() { return new Date().getTime(); };
@@ -45,6 +47,7 @@
     };
   };
 
+  var loadedHeight = innerHeight;
   var isIOS = navigator.userAgent.match(/(iPhone|iPod|iPad)/);
 
   var LazyTimer = function() {
@@ -152,6 +155,9 @@
     };
     this.moveTop = function() {
       if (self.el) {
+        if (isIOS && self.marginBottom > 0) {
+          clearInterval(self.timer);
+        }
         self.el.style.top = 0;
         self.el.style.bottom = 'auto';
         self.transformOrigin('top center');
@@ -162,7 +168,19 @@
     this.moveBottom = function() {
       if (self.el) {
         self.el.style.top = 'auto'
-        self.el.style.bottom = self.marginBottom + 'px';
+        if (isIOS && self.marginBottom > 0) {
+          clearInterval(self.timer);
+          self.timer = setInterval(function() {
+            if (!self.el) {
+              clearInterval(self.timer);
+              return;
+            }
+            var bottom = (innerHeight - loadedHeight) * BOTTOM_BAR_HEIGHT / (TOP_BAR_HEIGHT + BOTTOM_BAR_HEIGHT) + self.marginBottom - BOTTOM_BAR_HEIGHT;
+            self.el.style.bottom = (bottom > 0 ? bottom : 0) + 'px';
+          });
+        } else {
+          self.el.style.bottom = self.marginBottom + 'px';
+        }
         self.transformOrigin('bottom center');
         btn.style.top = '-35px';
         btn.style.bottom = 'auto';
@@ -205,7 +223,7 @@
 
   var marginBottom = 0;
   if (isIOS) {
-    marginBottom = type === "a" ? 44 : 0;
+    marginBottom = type === "a" ? BOTTOM_BAR_HEIGHT : 0;
   }
   var overlay = new Overlay(spotId, width, height, marginBottom);
   overlay.moveCenter();
