@@ -49,14 +49,15 @@
 
   var loadedHeight = innerHeight;
   var isIOS = navigator.userAgent.match(/(iPhone|iPod|iPad)/);
+  var isTouching = false;
 
   var LazyTimer = function() {
     var timerId;
-    this.do = function(callback) {
+    this.do = function(callback, time) {
       if (timerId) {
         clearTimeout(timerId);
       }
-      timerId = delay(callback, 1000);
+      timerId = delay(callback, time);
     };
   };
  
@@ -123,27 +124,23 @@
 
     // インスタンスが1度しか生成されない前提なので prototype で関数を定義していません
     var self = this;
-    this.fadein = function() {
-      if (self.el && self.enable && self.el.style.visibility === 'hidden') {
+    this.show = function() {
+      if (self.el && self.enable && self.el.style.visibility === 'hidden' && !isTouching) {
         self.el.style.visibility = 'visible';
         self.el.style.opacity = 0;
-        for (var i = 0; i < 20; i++) {
-          delay((function(i) {
-            return function() {
-              self.el.style.opacity = 0.05 * (i+1);
-            }
-          })(i), i * 50);
-        }
+        self.opacityTimer = setInterval(function() {
+          var opacity = Number(self.el.style.opacity);
+          if (!self.el || opacity >= 1) {
+            clearInterval(self.opacityTimer);
+            return;
+          }
+          self.el.style.opacity = opacity + 0.05;
+        }, 50);
       }
     };
-    this.show = function() {
-      if (self.el && self.enable && self.el.style.visibility === 'hidden') {
-      self.el.style.visibility = 'visible';
-      self.el.style.opacity = 1;
-      }
-    }
     this.hide = function() {
       if (self.el) {
+        clearInterval(self.opacityTimer);
         self.el.style.visibility = 'hidden';
       }
     };
@@ -156,7 +153,7 @@
     this.moveTop = function() {
       if (self.el) {
         if (isIOS && self.marginBottom > 0) {
-          clearInterval(self.timer);
+          clearInterval(self.bottomTimer);
         }
         self.el.style.top = 0;
         self.el.style.bottom = 'auto';
@@ -169,10 +166,10 @@
       if (self.el) {
         self.el.style.top = 'auto'
         if (isIOS && self.marginBottom > 0) {
-          clearInterval(self.timer);
-          self.timer = setInterval(function() {
+          clearInterval(self.bottomTimer);
+          self.bottomTimer = setInterval(function() {
             if (!self.el) {
-              clearInterval(self.timer);
+              clearInterval(self.bottomTimer);
               return;
             }
             var bottom = (innerHeight - loadedHeight) * BOTTOM_BAR_HEIGHT / (TOP_BAR_HEIGHT + BOTTOM_BAR_HEIGHT) + self.marginBottom - BOTTOM_BAR_HEIGHT;
@@ -231,23 +228,19 @@
   if (type !== "d") {
     overlay.autoFit();
   }
-  overlay.fadein();
+  overlay.show();
 
   // 通常媒体、保守的媒体向け
   if (["c", "d"].indexOf(type) !== -1) {
-    if(isIOS){
-      d.addEventListener('touchstart', overlay.hide, false);
-      d.addEventListener('touchend', overlay.show, false);
-    } else {
-     var lazyTimer = new LazyTimer();
-     d.addEventListener('scroll', debounce(function() {
-          overlay.hide();  
-          lazyTimer.do(overlay.fadein);
-        }, 100, true), false);
-     
-      d.addEventListener('touchstart', overlay.hide, false);
-      d.addEventListener('touchend', function() { delay(overlay.fadein, 100); }, false);
+    var lazyTimer = new LazyTimer();
+    if(!isIOS) {
+      d.addEventListener('scroll', debounce(function() {
+        overlay.hide();
+        lazyTimer.do(overlay.show, 1000);
+      }, 100, true), false);
     }
+    d.addEventListener('touchstart', function() { isTouching = true; overlay.hide(); }, false);
+    d.addEventListener('touchend', function() { isTouching = false; lazyTimer.do(overlay.show, 500); }, false);
   }
   
   // スクロール位置(画面下部かどうか)によって表示位置を切り替える
@@ -279,7 +272,7 @@
     // portrait
     if (mql.matches) {
       overlay.enable = true;
-      overlay.fadein();
+      overlay.show();
     }
     // landscape
     else {
