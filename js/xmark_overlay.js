@@ -2,7 +2,7 @@
 /*global __kauli_motime__*/
 (function(d) {
   var YAD_HOST = 'y.kau.li';
-  var JS_HOST = 'js.kau.li';
+  var JS_HOST = 'chat-charisma.github.io';
 
   var test_e = document.createElement('div');
   var test_i = 0;
