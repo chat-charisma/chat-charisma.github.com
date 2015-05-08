@@ -207,7 +207,7 @@
     };
     this.autoFit = function() {
       var scale = d.documentElement.clientWidth / self.width;
-      self.transform(scale.toFixed(2));
+      self.transform(Math.ceil(scale * 1000) / 1000);
     }
   };
 
