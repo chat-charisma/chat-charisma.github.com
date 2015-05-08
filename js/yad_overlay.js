@@ -60,32 +60,22 @@
       timerId = delay(callback, time);
     };
   };
- 
-  var Overlay = function(spotId, width, height, marginBottom) {
-    this.width = width || 320;
-    this.height = height || 50;
-    this.marginBottom = marginBottom || 0;
-    this.enable = true;
-    
-    var ad = d.createElement('div');
-    ad.setAttribute("id", "ad");
-    ad.style.visibility = 'hidden';
-    ad.style.position = 'fixed';
-    ad.style.background = '#333333';
-    ad.style.top = 0;
-    ad.style.left = 0;
-    ad.style.lineHeight = 0;
-    ad.style.zIndex = 10000;
+
+  (function makeYadScriptTag() {
+    var script = d.getElementById('kauli_yad_overlay');
+    var spotId = Number(script.getAttribute('data-s'));
+    var width = Number(script.getAttribute('data-w'));
+    var height = Number(script.getAttribute('data-h'));
 
     var cs = (d.all ? d.charset : d.characterSet).toLowerCase();
     var t = new Date().getTime();
     var u = (function() {
       try {
         return {
-          url: parent.d.URL,
-          rurl: parent.d.referrer
+          url: parent.document.URL,
+          rurl: parent.document.referrer
         };
-      } catch(e) {
+      } catch (e) {
         return {
           url: d.referrer,
           rurl: ''
@@ -93,14 +83,39 @@
       }
     }());
 
-    var query = 'u=' + encodeURIComponent(u.url) + '&r='+ encodeURIComponent(u.rurl) + '&s=' + spotId + '&z=' + width + 'x' + height + '&c=1&cs=' + cs + '&p=0-0&t=' + t;
-    if(typeof __kauli_motime__ !== 'undefined') {
+    var query = 'u=' + encodeURIComponent(u.url) + '&r=' + encodeURIComponent(u.rurl) + '&s=' + spotId + '&z=' + width + 'x' + height + '&c=1&cs=' + cs + '&p=0-0&t=' + t + '&fmt=json';
+    if (typeof __kauli_motime__ !== 'undefined') {
         query += '&motime=' + parseInt(__kauli_motime__, 10);
     }
-    var iframe_src = 'http://' + spotId + '.' + YAD_HOST + '/?' + query;
-    // var iframe_src = 'iframe320x50.html';
-    ad.innerHTML = '<iframe name="' + t + '" id="kauli_overlay" src="' + iframe_src + '" width="' + width + '" height="' + height + '" scrolling="no" frameborder="0" allowtransparency="true" style="vertical-align: text-buttom;"></iframe>';
-  
+    var src = 'http://' + spotId + '.' + YAD_HOST + '/?' + query;
+    d.write('<script src="' + src + '"></script>');
+  })();
+
+  var Overlay = function(adcode, width, height, marginBottom) {
+    this.width = width || 320;
+    this.height = height || 50;
+    this.marginBottom = marginBottom || 0;
+    this.enable = true;
+
+    var ad = d.createElement('div');
+    ad.style.visibility = 'hidden';
+    ad.style.position = 'fixed';
+    ad.style.background = '#333333';
+    ad.style.top = 0;
+    ad.style.left = 0;
+    ad.style.lineHeight = 0;
+    ad.style.zIndex = 10000;
+    ad.innerHTML = adcode;
+
+    var iframe = ad.getElementsByTagName('iframe')[0];
+    if (iframe && iframe.id === 'ad') {
+      iframe.addEventListener('load', function() {
+        this.width = width;
+        this.height = height;
+        this.contentWindow.postMessage({width: width, height: height}, '*');
+      });
+    }
+
     d.body.appendChild(ad);
 
     var btn = document.createElement('button');
@@ -207,81 +222,92 @@
     };
     this.autoFit = function() {
       var scale = d.documentElement.clientWidth / self.width;
-      self.transform(Math.ceil(scale * 1000) / 1000);
+      self.transform(scale.toFixed(2));
     }
   };
 
-  // main
-  var script = d.getElementById('kauli_yad_overlay');
-  var type = script.getAttribute('data-t');
-  var spotId = Number(script.getAttribute('data-s'));
-  var width = Number(script.getAttribute('data-w'));
-  var height = Number(script.getAttribute('data-h'));
+  function makeAd(adcode) {
+    var script = d.getElementById('kauli_yad_overlay');
+    var type = script.getAttribute('data-t');
+    var width = Number(script.getAttribute('data-w'));
+    var height = Number(script.getAttribute('data-h'));
 
-  var marginBottom = 0;
-  if (isIOS) {
-    marginBottom = type === "a" ? BOTTOM_BAR_HEIGHT : 0;
-  }
-  var overlay = new Overlay(spotId, width, height, marginBottom);
-  overlay.moveCenter();
-  overlay.moveAuto();
-  if (type !== "d") {
-    overlay.autoFit();
-  }
-  overlay.show();
-
-  // 通常媒体、保守的媒体向け
-  if (["c", "d"].indexOf(type) !== -1) {
-    var lazyTimer = new LazyTimer();
-    if(!isIOS) {
-      d.addEventListener('scroll', debounce(function() {
-        overlay.hide();
-        lazyTimer.do(overlay.show, 1000);
-      }, 100, true), false);
+    var marginBottom = 0;
+    if (isIOS) {
+      marginBottom = type === "a" ? BOTTOM_BAR_HEIGHT : 0;
     }
-    d.addEventListener('touchstart', function() { isTouching = true; overlay.hide(); }, false);
-    d.addEventListener('touchend', function() { isTouching = false; lazyTimer.do(overlay.show, 500); }, false);
-  }
-  
-  // スクロール位置(画面下部かどうか)によって表示位置を切り替える
-  d.addEventListener('scroll', debounce(overlay.moveAuto, 100), false);
-
-  // ウィンドウサイズの変化に対応する 
-  var event = isIOS ? 'orientationchange' : 'resize';
-  window.addEventListener(event, debounce(function() {
+    var overlay = new Overlay(adcode, width, height, marginBottom);
+    overlay.moveCenter();
+    overlay.moveAuto();
     if (type !== "d") {
       overlay.autoFit();
     }
-    overlay.moveCenter();
-    overlay.moveAuto();
-  }, 100), false);
- 
-  // iOS 8.0 のバーニョキニョキ問題 
-  if (isIOS) {
-    // このイベントは多発しない
-    window.addEventListener('resize', function() {
-      overlay.moveAuto();
-    });
-  }
-  // 向きの概念が存在しないならここで終了
-  if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(orientation: landscape)").matches) {
-    return;
-  }
-  
-  var handleOrientationChange = function (mql) {
-    // portrait
-    if (mql.matches) {
-      overlay.enable = true;
-      overlay.show();
-    }
-    // landscape
-    else {
-      overlay.enable = false;
-      overlay.hide();
-    }
-  };
+    overlay.show();
 
-  var mql = window.matchMedia("(orientation: portrait)");
-  mql.addListener(handleOrientationChange); // イベントに登録
-  handleOrientationChange(mql);  // 初回読み込み
+    // 通常媒体、保守的媒体向け
+    if (["c", "d"].indexOf(type) !== -1) {
+      var lazyTimer = new LazyTimer();
+      if(!isIOS) {
+        d.addEventListener('scroll', debounce(function() {
+          overlay.hide();
+          lazyTimer.do(overlay.show, 1000);
+        }, 100, true), false);
+      }
+      d.addEventListener('touchstart', function() { isTouching = true; overlay.hide(); }, false);
+      d.addEventListener('touchend', function() { isTouching = false; lazyTimer.do(overlay.show, 500); }, false);
+    }
+
+    // スクロール位置(画面下部かどうか)によって表示位置を切り替える
+    d.addEventListener('scroll', debounce(overlay.moveAuto, 100), false);
+
+    // ウィンドウサイズの変化に対応する
+    var event = isIOS ? 'orientationchange' : 'resize';
+    window.addEventListener(event, debounce(function() {
+      if (type !== "d") {
+        overlay.autoFit();
+      }
+      overlay.moveCenter();
+      overlay.moveAuto();
+    }, 100), false);
+
+    // iOS 8.0 のバーニョキニョキ問題
+    if (isIOS) {
+      // このイベントは多発しない
+      window.addEventListener('resize', function() {
+        overlay.moveAuto();
+      });
+    }
+    // 向きの概念が存在しないならここで終了
+    if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(orientation: landscape)").matches) {
+      return;
+    }
+
+    var handleOrientationChange = function (mql) {
+      // portrait
+      if (mql.matches) {
+        overlay.enable = true;
+        overlay.show();
+      }
+      // landscape
+      else {
+        overlay.enable = false;
+        overlay.hide();
+      }
+    };
+
+    var mql = window.matchMedia("(orientation: portrait)");
+    mql.addListener(handleOrientationChange); // イベントに登録
+    handleOrientationChange(mql);  // 初回読み込み
+  }
+
+  var done = false;
+  window.kauliFillAd = function(data) {
+    if (done) { return; }
+    done = true;
+
+    if (data.cookieSyncHtml) {
+      d.write(data.cookieSyncHtml);
+    }
+    makeAd(data.adcode);
+  }
 }(document));
