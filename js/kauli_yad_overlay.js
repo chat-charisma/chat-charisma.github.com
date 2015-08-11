@@ -2,7 +2,7 @@
 /*global __kauli_motime__*/
 (function(d) {
   var YAD_HOST = 'y.kau.li';
-  // var JS_HOST = 'js.kau.li';
+  var JS_HOST = 'js.kau.li';
   var TOP_BAR_HEIGHT = 24;
   var BOTTOM_BAR_HEIGHT = 44;
 
