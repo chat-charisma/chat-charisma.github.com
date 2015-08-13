@@ -12,7 +12,9 @@
 <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
-  $("#header").load("./header.html");
+  var ua = navigator.userAgent.toUpperCase();
+  (ua.indexOf('IPHONE') != -1 || (ua.indexOf('ANDROID') != -1 && ua.indexOf('MOBILE') != -1))?
+    $("#header").load("./spheader.html") : $("#header").load("./header.html");
   $("#footer").load("./footer.html");
 })
 </script>
