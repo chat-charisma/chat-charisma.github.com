@@ -33,9 +33,11 @@ section h2 {
     margin: 0px;
     padding: 0px;
 }
-section h1 span:before, h2 span:before {
-    content: "\A";
-    white-space: pre;
+@media screen and (max-width: 320px) {
+    section h1 span:before, h2 span:before {
+        content: "\A";
+        white-space: pre;
+    }
 }
 footer {
 }
