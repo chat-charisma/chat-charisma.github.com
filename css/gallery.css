@@ -2,8 +2,6 @@ header, nav, article, aside, section, footer {
     display:block;
 }
 header, nav, article, aside, section, footer {
-    /*border:1px solid #cccccc;*/
-    border:1px;
     margin:0px 0px 0px;
     padding:0px;
 }
