@@ -1,37 +1,41 @@
 header, nav, article, aside, section, footer {
-    display:block;
+    display: block;
 }
 header, nav, article, aside, section, footer {
-    text-align:center;
-    margin:0px;
-    padding:0px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
 }
 header {
 }
 nav {
-    padding:5px;
+    padding: 5px;
 }
 nav ul, nav li {
-    list-style-type:none;
-    display:inline;
-    padding:0px 10px;
+    list-style-type: none;
+    display: inline;
+    padding: 0px 10px;
 }
 nav h1 {
-    display:none;
+    display: none;
 }
 section {
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
 }
 section h1 {
     background: linear-gradient(#FF9500, #FF5E00);
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
 }
 section h2 {
     background: linear-gradient(#FF5E00, #FF1800);
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
+}
+section h1 span:before, h2 span:before {
+    content: "\A";
+    white-space: pre;
 }
 footer {
 }
