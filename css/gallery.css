@@ -1,3 +1,23 @@
 header, nav, article, aside, section, footer {
     display:block;
 }
+header, nav, article, aside, section, footer {
+    border:1px solid #cccccc;
+    margin:0px 0px 10px;
+    padding:20px;
+}
+header {
+    text-align:center;
+}
+nav {
+    text-align:center;
+    padding:5px;
+}
+nav ul, nav li {
+    list-style-tyoe:none;
+    display:inline;
+    padding:0px 10px;
+}
+nav h1 {
+    display:nene;
+}
