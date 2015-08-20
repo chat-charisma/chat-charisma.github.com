@@ -28,6 +28,9 @@ section {
 section h1 {
     background: linear-gradient(#FF9500, #FF5E00);
 }
+section h2 {
+    background: linear-gradient(#FF5E00, #FF5F00);
+}
 footer {
     text-align:center;
 }
