@@ -3,7 +3,7 @@ header, nav, article, aside, section, footer {
 }
 header, nav, article, aside, section, footer {
     text-align:center;
-    margin:0px 0px 0px;
+    margin:0px;
     padding:0px;
 }
 header {
@@ -12,7 +12,7 @@ nav {
     padding:5px;
 }
 nav ul, nav li {
-    list-style-tyoe:none;
+    list-style-type:none;
     display:inline;
     padding:0px 10px;
 }
