@@ -20,12 +20,18 @@ nav h1 {
     display:none;
 }
 section {
+    margin:0px;
+    padding:0px;
 }
 section h1 {
     background: linear-gradient(#FF9500, #FF5E00);
+    margin:0px;
+    padding:0px;
 }
 section h2 {
     background: linear-gradient(#FF5E00, #FF1800);
+    margin:0px;
+    padding:0px;
 }
 footer {
 }
