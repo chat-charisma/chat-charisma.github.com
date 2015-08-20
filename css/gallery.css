@@ -25,8 +25,6 @@ nav h1 {
 section {
     text-align:center;
     display:inline;
-    margin:0px 0px 0px;
-    padding:0px;
 }
 section h1 {
     background: linear-gradient(#FF9500, #FF5E00);
