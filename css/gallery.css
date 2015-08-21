@@ -15,7 +15,7 @@ nav ul, nav li {
     list-style-type: none;
     display: inline;
     padding: 0px 10px;
-    background-color: #FF0500;
+    background: linear-gradient(#FFBC00, #FF9500);
 }
 nav h1 {
     display: none;
