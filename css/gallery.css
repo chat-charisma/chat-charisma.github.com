@@ -18,7 +18,7 @@ nav ul {
     border: 1px solid #FF1000;
 }
 nav li {
-    float: left;
+    /*float: left;*/
 }
 nav h1 {
     display: none;
