@@ -9,14 +9,15 @@ header, nav, article, aside, section, footer {
 header {
 }
 nav {
-    /*padding: 5px;*/
+    background: linear-gradient(#FFBC00, #FF9500);
+    margin: 0px;
+    padding: 0px;
 }
 nav ul, nav li {
     list-style-type: none;
     display: inline;
     margin: 0px;
-    padding: 0px 10px;
-    background: linear-gradient(#FFBC00, #FF9500);
+    padding: 0px;
 }
 nav h1 {
     display: none;
