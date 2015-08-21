@@ -15,9 +15,7 @@ nav ul {
     list-style-type: none;
     display: inline;
     padding: 0px 10px;
-    border-top: 1px solid #FF1000;
-    border-bottom: 1px solid #FF1000;
-    border-left: 1px solid #FF1000;
+    border: 1px solid #FF1000;
 }
 nav li {
     float: left;
