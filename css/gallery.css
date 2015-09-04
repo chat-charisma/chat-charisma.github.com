@@ -22,6 +22,9 @@ nav ul, nav li {
 nav h1 {
     display: none;
 }
+nav li.sp {
+    display: none;
+}
 section {
     margin: 0px;
     padding: 0px;
