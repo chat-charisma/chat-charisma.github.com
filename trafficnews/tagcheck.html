@@ -259,13 +259,11 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
 */
           if(ref.match(pattern)){
             datas = refset[refcnt].refdata;
-/*
-            alert("datas = " + datas);
-*/
           };
         };
       };
     }
+    alert("datas = " + datas);
     var indexdata = dataset.indexOf(datas);
     alert("indexdata = " + indexdata);
     if(datas === ""){
