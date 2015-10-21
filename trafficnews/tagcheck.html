@@ -247,7 +247,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     if(ref!=""){
       for(refcnt = 0; refcnt < refset.length; refcnt++){
         str = refset[refcnt].refurl;
-        if(str == ""){
+        if(str !== ""){
           alert("str = " + str);
           encstr = encodeURI(str);
           alert("encstr = " + encstr);
