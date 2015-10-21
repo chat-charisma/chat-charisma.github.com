@@ -174,7 +174,8 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   function load(){
     var ref = document.referrer;
     var selref = refset[0];
-    var seltitle = dataset.default[0];
+    var seltitle = dataset["default"][0];
+    alert("seltitle = " + seltitle);
     var selartical = dataset.default[1];
     var selfooter = dataset.default[2];
     var refcnt = 0;
