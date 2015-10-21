@@ -225,11 +225,9 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   ];
   function load(){
     var ref = document.referrer;
-    alert("ref = " + ref);
     var selref = refset[0];
     var str = selref.refurl;
     var refnames = dataset[0].refname;
-    alert("refnames = " + refnames);
     var chgtags = dataset[0].chgtag;
     var seltitle = chgtags[0];
     var selartical = chgtags[1];
@@ -248,18 +246,28 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       for(refcnt = 0; refcnt < refset.length; refcnt++){
         str = refset[refcnt].refurl;
         if(str !== ""){
+/*
           alert("str = " + str);
+*/
           encstr = encodeURI(str);
+/*
           alert("encstr = " + encstr);
+*/
           pattern = new RegExp(encstr);
+/*
           alert("pattern = " + pattern);
+*/
           if(ref.match(pattern)){
             datas = refset[refcnt].refdata;
+/*
             alert("datas = " + datas);
+*/
           };
         };
       };
     }
+    var indexdata = dataset.indexOf(datas);
+    alert("indexdata = " + indexdata);
     if(datas === ""){
       datas = selref.refdata;
       alert("datas = " + datas);
