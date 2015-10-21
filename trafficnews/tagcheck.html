@@ -243,14 +243,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         footer_id = selfooter.id;
       }
     };
-    alert("ref = " + ref + "\n" +
-          "datas = " + datas + "\n" +
-          "title_label = " + title_label + "\n" +
-          "title_id = " + title_id + "\n" +
-          "artical_label = " + artical_label + "\n" +
-          "artical_id = " + artical_id + "\n" +
-          "footer_label = " + footer_label + "\n" +
-          "footer_id = " + footer_id);
   };
 
   (function(){
@@ -265,6 +257,14 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
 </script>
 
 <script type='text/javascript'>
+    alert("ref = " + ref + "\n" +
+          "datas = " + datas + "\n" +
+          "title_label = " + title_label + "\n" +
+          "title_id = " + title_id + "\n" +
+          "artical_label = " + artical_label + "\n" +
+          "artical_id = " + artical_id + "\n" +
+          "footer_label = " + footer_label + "\n" +
+          "footer_id = " + footer_id);
   googletag.cmd.push(function() {
     googletag.defineSlot(title_label, [320, 100], title_id).addService(googletag.pubads());
     googletag.defineSlot(footer_label, [300, 250], footer_id).addService(googletag.pubads());
