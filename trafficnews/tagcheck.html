@@ -225,9 +225,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         str = refset[refcnt].refurl;
         if(str !== ""){
           pattern = new RegExp(encodeURI(str));
-          if(ref.match(pattern)){
-            datas = refset[refcnt].refdata;
-          };
+          if(ref.match(pattern)) datas = refset[refcnt].refdata;
         };
       };
     }
