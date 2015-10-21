@@ -125,7 +125,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
 <script type='text/javascript'>
   var refset = [
     { refurl: '', refdata: 'default', },
-    { refurl: 'chat-charisma.github.io', refdata: 'facebook' },
     { refurl: 'headlines.yahoo.co.jp', refdata: 'yahoo' },
     { refurl: 'news.yahoo.co.jp', refdata: 'yahoo' },
     { refurl: 'smartnews.be', refdata: 'smartnews' },
@@ -205,7 +204,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   function load(){
     var ref = document.referrer,
         selref = refset[0],
-        str = selref.refurl,
+        strurl = selref.refurl,
         chgtags = dataset[0].chgtag,
         seltitle = chgtags[0],
         selartical = chgtags[1],
@@ -222,8 +221,8 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         datas = "";
     if(ref!=""){
       for(refcnt = 0; refcnt < refset.length; refcnt++){
-        str = refset[refcnt].refurl;
-        if(str !== ""){
+        strurl = refset[refcnt].refurl;
+        if(strurl !== ""){
           pattern = new RegExp(encodeURI(str));
           if(ref.match(pattern)) datas = refset[refcnt].refdata;
         };
@@ -231,7 +230,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     }
     for(datacnt = 0; datacnt < dataset.length; datacnt++){
       chkstr = dataset[datacnt].refname;
-      alert("datas = " + datas + "\n" + "chkstr = " + chkstr);
       if(datas === chkstr){
         chgtags = dataset[datacnt].chgtag;
         seltitle = chgtags[0];
@@ -245,7 +243,9 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         footer_id = selfooter.id;
       }
     };
-    alert("title_label = " + title_label + "\n" +
+    alert("datas = " + datas + "\n" +
+          "chkstr = " + chkstr + "\n" +
+          "title_label = " + title_label + "\n" +
           "title_id = " + title_id + "\n" +
           "artical_label = " + artical_label + "\n" +
           "artical_id = " + artical_id + "\n" +
