@@ -155,7 +155,8 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   ];
   var dataset = [
     {
-      "default":[
+      refname:'default',
+      chgtag:[
         { // title
           label:'/62532913/7312_乗りものニュース_S_320100_title_nssl',
           id:'div-gpt-ad-1441704189148-0',
@@ -174,7 +175,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   function load(){
     var ref = document.referrer;
     var selref = refset[0];
-    var dataobj = dataset["default"];
+    var dataobj = dataset.refname["default"];
     alert("data obj = " + dataobj);
     for(var i in dataobj){
       var objdata = dataobj[i];
