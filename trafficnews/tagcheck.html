@@ -129,6 +129,10 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       refdata: 'default',
     },
     {
+      refurl: 'chat-charisma.github.io',
+      refdata: 'yahoo'
+    },
+    {
       refurl: 'headlines.yahoo.co.jp',
       refdata: 'yahoo'
     },
@@ -147,10 +151,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     {
       refurl: 'm.facebook.com',
       refdata: 'facebook'
-    },
-    {
-      refurl: 'chat-charisma.github.io',
-      refdata: 'yahoo'
     },
   ];
   var dataset = [
@@ -246,15 +246,17 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     var datas = "";
     if(ref!=""){
       for(refcnt = 0; refcnt < refset.length; refcnt++){
-        str = refset[refcnt].refurl;
-        alert("str = " + str);
-        encstr = encodeURI(str);
-        alert("encstr = " + encstr);
-        pattern = new RegExp(encstr);
-        alert("pattern = " + pattern);
-        if(ref.match(pattern)){
-          datas = refset[refcnt].refdata;
-          alert("datas = " + datas);
+        if(!datas){
+          str = refset[refcnt].refurl;
+          alert("str = " + str);
+          encstr = encodeURI(str);
+          alert("encstr = " + encstr);
+          pattern = new RegExp(encstr);
+          alert("pattern = " + pattern);
+          if(ref.match(pattern)){
+            datas = refset[refcnt].refdata;
+            alert("datas = " + datas);
+          };
         };
       };
     }
