@@ -124,34 +124,13 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
 <!-- new add header start -->
 <script type='text/javascript'>
   var refset = [
-    {
-      refurl: '',
-      refdata: 'default',
-    },
-    {
-      refurl: 'chat-charisma.github.io',
-      refdata: 'yahoo'
-    },
-    {
-      refurl: 'headlines.yahoo.co.jp',
-      refdata: 'yahoo'
-    },
-    {
-      refurl: 'news.yahoo.co.jp',
-      refdata: 'yahoo'
-    },
-    {
-      refurl: 'smartnews.be',
-      refdata: 'smartnews'
-    },
-    {
-      refurl: 'smartnews.com',
-      refdata: 'smartnews'
-    },
-    {
-      refurl: 'm.facebook.com',
-      refdata: 'facebook'
-    },
+    { refurl: '', refdata: 'default', },
+    { refurl: 'chat-charisma.github.io', refdata: 'facebook' },
+    { refurl: 'headlines.yahoo.co.jp', refdata: 'yahoo' },
+    { refurl: 'news.yahoo.co.jp', refdata: 'yahoo' },
+    { refurl: 'smartnews.be', refdata: 'smartnews' },
+    { refurl: 'smartnews.com', refdata: 'smartnews' },
+    { refurl: 'm.facebook.com', refdata: 'facebook' },
   ];
   var dataset = [
     {
@@ -246,24 +225,14 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       for(refcnt = 0; refcnt < refset.length; refcnt++){
         str = refset[refcnt].refurl;
         if(str !== ""){
-/*
-          alert("str = " + str);
-*/
           encstr = encodeURI(str);
-/*
-          alert("encstr = " + encstr);
-*/
           pattern = new RegExp(encstr);
-/*
-          alert("pattern = " + pattern);
-*/
           if(ref.match(pattern)){
             datas = refset[refcnt].refdata;
           };
         };
       };
     }
-    alert("datas = " + datas);
     for(datacnt = 0; datacnt < datacnt.length; datacnt++){
       chkstr = dataset[datacnt].refname;
       if(datas === chkstr){
@@ -279,20 +248,13 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         var footer_id = selfooter.id;
       }
     };
-/*
-    if(datas === ""){
-      datas = selref.refdata;
-*/
-      alert("datas = " + datas);
-      alert("title_label = " + title_label);
-      alert("title_id = " + title_id);
-      alert("artical_label = " + artical_label);
-      alert("artical_id = " + artical_id);
-      alert("footer_label = " + footer_label);
-      alert("footer_id = " + footer_id);
-/*
-    };
-*/
+    alert("datas = " + datas);
+    alert("title_label = " + title_label);
+    alert("title_id = " + title_id);
+    alert("artical_label = " + artical_label);
+    alert("artical_id = " + artical_id);
+    alert("footer_label = " + footer_label);
+    alert("footer_id = " + footer_id);
   };
   (function(){
     if(document.addEventListener){
