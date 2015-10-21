@@ -243,17 +243,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         footer_id = selfooter.id;
       }
     };
-  };
-
-  (function(){
-    if(document.addEventListener){
-      document.addEventListener("DOMContentLoaded", load, false);
-    } else if(window.attachEvent){
-      window.attachEvent("onload", load);
-    } else {
-      window.onload = load;
-    }
-  })();
     alert("ref = " + ref + "\n" +
           "datas = " + datas + "\n" +
           "title_label = " + title_label + "\n" +
@@ -269,6 +258,17 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
+  };
+
+  (function(){
+    if(document.addEventListener){
+      document.addEventListener("DOMContentLoaded", load, false);
+    } else if(window.attachEvent){
+      window.attachEvent("onload", load);
+    } else {
+      window.onload = load;
+    }
+  })();
 </script>
 <!-- new add header end   -->
 
