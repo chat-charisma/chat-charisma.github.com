@@ -217,15 +217,18 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     var footer_label = selfooter.label;
     var footer_id = selfooter.id;
     var refcnt = 0;
-    var encstr = "";
+    /*var encstr = "";*/
     var pattern = "";
     var datas = "";
     if(ref!=""){
       for(refcnt = 0; refcnt < refset.length; refcnt++){
         str = refset[refcnt].refurl;
         if(str !== ""){
+/*
           encstr = encodeURI(str);
           pattern = new RegExp(encstr);
+*/
+          pattern = new RegExp(encodeURI(str));
           if(ref.match(pattern)){
             datas = refset[refcnt].refdata;
           };
