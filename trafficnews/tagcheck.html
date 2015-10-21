@@ -177,8 +177,11 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     var selref = refset[0];
     var refnames = dataset[0].refname;
     alert("refnames = " + refnames);
-    var chgtag = dataset[0].chgtag;
-    alert("chgtag = " + chgtag);
+    var chgtags = dataset[0].chgtag;
+    alert("chgtag = " + chgtags);
+    var seltitle = chgtags[0];
+    var selartical = chgtags[1];
+    var selfooter = chgtags[2];
 /*
     var seltitle = dataobj[0].label;
     var selartical = dataset.default[1];
@@ -204,6 +207,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
         };
       };
     }
+*/
     if(datas === ""){
       str = selref.refurl;
       datas = selref.refdata;
@@ -222,7 +226,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       alert("footer_label = " + footer_label);
       alert("footer_id = " + footer_id);
     };
-*/
   };
   (function(){
     if(document.addEventListener){
