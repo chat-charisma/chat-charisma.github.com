@@ -127,20 +127,6 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     {
       refurl: '',
       refdata: 'default',
-      dataset:[
-        { // title
-          label:'/62532913/7312_乗りものニュース_S_320100_title_nssl',
-          id:'div-gpt-ad-1441704189148-0',
-        },
-        { // article
-          label:'/62532913/7312_乗りものニュース_S_300250_kiji_nssl',
-          id:'div-gpt-ad-1441704189148-2',
-        },
-        { // footer
-          label:'/62532913/s_乗りものニュース_300x250_footer_7312',
-          id:'div-gpt-ad-1441704189148-1',
-        },
-      ],
     },
     {
       refurl: 'headlines.yahoo.co.jp',
@@ -162,13 +148,35 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       refurl: 'm.facebook.com',
       refdata: 'facebook'
     },
+    {
+      refurl: 'chat-charisma.github.io',
+      refdata: 'github'
+    },
+  ];
+  var dataset = [
+    default:[
+      { // title
+        label:'/62532913/7312_乗りものニュース_S_320100_title_nssl',
+        id:'div-gpt-ad-1441704189148-0',
+      },
+      { // article
+        label:'/62532913/7312_乗りものニュース_S_300250_kiji_nssl',
+        id:'div-gpt-ad-1441704189148-2',
+      },
+      { // footer
+        label:'/62532913/s_乗りものニュース_300x250_footer_7312',
+        id:'div-gpt-ad-1441704189148-1',
+      },
+    ],
   ];
   function load(){
     var ref = document.referrer;
     var selref = refset[0];
+    /*
     var seltitle = selref.dataset[0];
     var selartical = selref.dataset[1];
     var selfooter = selref.dataset[2];
+    */
     var refcnt = 0;
     var str = "";
     var encstr = "";
