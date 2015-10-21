@@ -252,6 +252,7 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
           "footer_label = " + footer_label + "\n" +
           "footer_id = " + footer_id);
   };
+
   (function(){
     if(document.addEventListener){
       document.addEventListener("DOMContentLoaded", load, false);
@@ -261,6 +262,16 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       window.onload = load;
     }
   })();
+</script>
+
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot(title_label, [320, 100], title_id).addService(googletag.pubads());
+    googletag.defineSlot(footer_label, [300, 250], footer_id).addService(googletag.pubads());
+    googletag.defineSlot(artical_label, [300, 250], artical_id).addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
 </script>
 <!-- new add header end   -->
 
@@ -348,12 +359,13 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
 <div id="content" class="clearfix">
 
 <div class="ad-large-big center">
-<!-- /62532913/7311_乗りものニュース_P_97090__header_nssl -->
-<div id='div-gpt-ad-1430990421219-0'>
+<!-- /62532913/7312_乗りものニュース_S_320100_title_nssl -->
+<div id='div-gpt-ad-1441704189148-0' style='height:100px; width:320px;'>
 <script type='text/javascript'>
-googletag.cmd.push(function() { googletag.display('div-gpt-ad-1430990421219-0'); });
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1441704189148-0'); });
 </script>
-</div></div>
+</div>
+</div>
 
 <div id="main-column">
 
