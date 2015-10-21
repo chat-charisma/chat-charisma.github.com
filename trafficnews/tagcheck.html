@@ -203,31 +203,27 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
     },
   ];
   function load(){
-    var ref = document.referrer;
-    var selref = refset[0];
-    var str = selref.refurl;
-    var chgtags = dataset[0].chgtag;
-    var seltitle = chgtags[0];
-    var selartical = chgtags[1];
-    var selfooter = chgtags[2];
-    var title_label = seltitle.label;
-    var title_id = seltitle.id;
-    var artical_label = selartical.label;
-    var artical_id = selartical.id;
-    var footer_label = selfooter.label;
-    var footer_id = selfooter.id;
-    var refcnt = 0;
-    /*var encstr = "";*/
-    var pattern = "";
-    var datas = "";
+    var ref = document.referrer,
+        selref = refset[0],
+        str = selref.refurl,
+        chgtags = dataset[0].chgtag,
+        seltitle = chgtags[0],
+        selartical = chgtags[1],
+        selfooter = chgtags[2],
+        title_label = seltitle.label,
+        title_id = seltitle.id,
+        artical_label = selartical.label,
+        artical_id = selartical.id,
+        footer_label = selfooter.label,
+        footer_id = selfooter.id,
+        refcnt = 0,
+        datacnt = 0,
+        pattern = "",
+        datas = "";
     if(ref!=""){
       for(refcnt = 0; refcnt < refset.length; refcnt++){
         str = refset[refcnt].refurl;
         if(str !== ""){
-/*
-          encstr = encodeURI(str);
-          pattern = new RegExp(encstr);
-*/
           pattern = new RegExp(encodeURI(str));
           if(ref.match(pattern)){
             datas = refset[refcnt].refdata;
@@ -239,16 +235,16 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       chkstr = dataset[datacnt].refname;
       alert("datas = " + datas + "\n" + "chkstr = " + chkstr);
       if(datas === chkstr){
-        var chgtags = dataset[datacnt].chgtag;
-        var seltitle = chgtags[0];
-        var selartical = chgtags[1];
-        var selfooter = chgtags[2];
-        var title_label = seltitle.label;
-        var title_id = seltitle.id;
-        var artical_label = selartical.label;
-        var artical_id = selartical.id;
-        var footer_label = selfooter.label;
-        var footer_id = selfooter.id;
+        chgtags = dataset[datacnt].chgtag;
+        seltitle = chgtags[0];
+        selartical = chgtags[1];
+        selfooter = chgtags[2];
+        title_label = seltitle.label;
+        title_id = seltitle.id;
+        artical_label = selartical.label;
+        artical_id = selartical.id;
+        footer_label = selfooter.label;
+        footer_id = selfooter.id;
       }
     };
     alert("title_label = " + title_label + "\n" +
