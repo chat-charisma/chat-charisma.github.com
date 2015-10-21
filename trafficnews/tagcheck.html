@@ -175,12 +175,10 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
   function load(){
     var ref = document.referrer;
     var selref = refset[0];
-    var dataobj = dataset.refname["default"];
-    alert("data obj = " + dataobj);
-    for(var i in dataobj){
-      var objdata = dataobj[i];
-      alert(objdata);
-    }
+    var refnames = dataset[0].refname;
+    alert("refnames = " + refnames);
+    var chgtag = dataset[0].chgtag;
+    alert("chgtag = " + chgtag);
 /*
     var seltitle = dataobj[0].label;
     var selartical = dataset.default[1];
