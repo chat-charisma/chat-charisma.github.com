@@ -264,10 +264,25 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       };
     }
     alert("datas = " + datas);
-    var indexdata = dataset.refname.[datas];
-    alert("indexdata = " + indexdata);
+    for(datacnt = 0; datacnt < datacnt.length; datacnt++){
+      chkstr = dataset[datacnt].refname;
+      if(datas === chkstr){
+        var chgtags = dataset[datacnt].chgtag;
+        var seltitle = chgtags[0];
+        var selartical = chgtags[1];
+        var selfooter = chgtags[2];
+        var title_label = seltitle.label;
+        var title_id = seltitle.id;
+        var artical_label = selartical.label;
+        var artical_id = selartical.id;
+        var footer_label = selfooter.label;
+        var footer_id = selfooter.id;
+      }
+    };
+/*
     if(datas === ""){
       datas = selref.refdata;
+*/
       alert("datas = " + datas);
       alert("title_label = " + title_label);
       alert("title_id = " + title_id);
@@ -275,7 +290,9 @@ var ulike_obj = {"ajaxurl":"http:\/\/trafficnews.jp\/app\/wp-admin\/admin-ajax.p
       alert("artical_id = " + artical_id);
       alert("footer_label = " + footer_label);
       alert("footer_id = " + footer_id);
+/*
     };
+*/
   };
   (function(){
     if(document.addEventListener){
