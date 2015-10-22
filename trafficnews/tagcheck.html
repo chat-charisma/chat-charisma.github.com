@@ -264,9 +264,9 @@ ga('send', 'pageview');
     stg.innerHTML = tgsrc;
     sta.innerHTML = tasrc;
     stf.innerHTML = tfsrc;
-    tg.parentNode.insertBefore(stg, tg);
-    ta.parentNode.insertBefore(sta, ta);
-    tf.parentNode.insertBefore(stf, tf);
+    if(tg!=NULL)tg.parentNode.insertBefore(stg, tg);
+    if(ta!=NULL)ta.parentNode.insertBefore(sta, ta);
+    if(tf!=NULL)tf.parentNode.insertBefore(stf, tf);
 
       alert("ref = " + ref + "\n" +
             "datas = " + datas + "\n" +
@@ -361,9 +361,7 @@ ga('send', 'pageview');
 
 
 <!-- /62532913/7312_乗りものニュース_S_320100_title_nssl -->
-<!--
 <div id='div-gpt-ad-title' style='height:100px; width:320px;'></div>
--->
 
 <!-- /62532913/7312_乗りものニュース_S_300250_kiji_nssl -->
 <div id='div-gpt-ad-artical' style='height:250px; width:300px;'></div>
