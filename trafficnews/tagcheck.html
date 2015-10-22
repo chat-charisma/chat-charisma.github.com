@@ -256,6 +256,14 @@ ga('send', 'pageview');
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
     });
+    (function(){
+      var tg = document.getElementById('div-gpt-ad-title'),
+          ta = document.getElementById('div-gpt-ad-artical'),
+          tf = document.getElementById('div-gpt-ad-footer');
+      tg.innerText = "title_label : " + title_label + "<br/>" + "title_id : " + title_id;
+      ta.innerText = "artical_label : " + artical_label + "<br/>" + "artical_id : " + artical_id;
+      tf.innerText = "footer_label : " + footer_label + "<br/>" + "footer_id : " + footer_id;
+    })();
   };
 
   (function(){
@@ -339,7 +347,14 @@ ga('send', 'pageview');
 </header>
 
 
+<!-- /62532913/7312_乗りものニュース_S_320100_title_nssl -->
+<div id='div-gpt-ad-title' style='height:100px; width:320px;'></div>
 
+<!-- /62532913/7312_乗りものニュース_S_300250_kiji_nssl -->
+<div id='div-gpt-ad-artical' style='height:250px; width:300px;'></div>
+
+<!-- /62532913/s_乗りものニュース_300x250_footer_7312 -->
+<div id='div-gpt-ad-footer' style='height:250px; width:300px;'></div>
 
 
 <div id="content" class="clearfix">
