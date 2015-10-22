@@ -262,38 +262,18 @@ ga('send', 'pageview');
     var tg = document.getElementById('div-gpt-ad-title'),
         ta = document.getElementById('div-gpt-ad-artical'),
         tf = document.getElementById('div-gpt-ad-footer'),
-        shead,sfoot,
         stg,sta,stf,
         tgsrc,tasrc,tfsrc,
         tgdata,tadata,tfdata;
     stg = document.createElement('script');
     sta = document.createElement('script');
     stf = document.createElement('script');
-/*
-    shead = "<scr"+"ipt type='text/javascript'>";
-    sfoot = "</scr"+"ipt>";
-*/
     tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
     tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
     tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
-/*
-    tgdata = shead + tgsrc + sfoot;
-    tadata = shead + tasrc + sfoot;
-    tfdata = shead + tfsrc + sfoot;
-*/
     stg.innerHTML = tgsrc;
     sta.innerHTML = tasrc;
     stf.innerHTML = tfsrc;
-/*
-    stg.innerHTML = tgdata;
-    sta.innerHTML = tadata;
-    stf.innerHTML = tfdata;
-*/
-/* 
-    tg.innerText = tgdata;
-    ta.innerText = tadata;
-    tf.innerText = tfdata;
-*/ 
     tg.parentNode.insertBefore(stg, tg);
     ta.parentNode.insertBefore(sta, ta);
     tf.parentNode.insertBefore(stf, tf);
