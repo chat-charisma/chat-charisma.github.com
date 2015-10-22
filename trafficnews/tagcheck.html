@@ -262,8 +262,11 @@ ga('send', 'pageview');
     var tg = document.getElementById('div-gpt-ad-title'),
         ta = document.getElementById('div-gpt-ad-artical'),
         tf = document.getElementById('div-gpt-ad-footer'),
-        stag;
-    stag = document.createElement('script');
+        stg,sta,stf;
+    /*stag = document.createElement('script');*/
+    stg = tg.createElement('script');
+    sta = ta.createElement('script');
+    stf = tf.createElement('script');
     tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
     tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
     tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
