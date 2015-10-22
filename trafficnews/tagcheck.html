@@ -242,16 +242,6 @@ ga('send', 'pageview');
       }
     };
     googletag.cmd.push(function() {
-/*
-      alert("ref = " + ref + "\n" +
-            "datas = " + datas + "\n" +
-            "title_label = " + title_label + "\n" +
-            "title_id = " + title_id + "\n" +
-            "artical_label = " + artical_label + "\n" +
-            "artical_id = " + artical_id + "\n" +
-            "footer_label = " + footer_label + "\n" +
-            "footer_id = " + footer_id);
-*/
       googletag.defineSlot(title_label, [320, 100], title_id).addService(googletag.pubads());
       googletag.defineSlot(footer_label, [300, 250], footer_id).addService(googletag.pubads());
       googletag.defineSlot(artical_label, [300, 250], artical_id).addService(googletag.pubads());
@@ -277,6 +267,16 @@ ga('send', 'pageview');
     tg.parentNode.insertBefore(stg, tg);
     ta.parentNode.insertBefore(sta, ta);
     tf.parentNode.insertBefore(stf, tf);
+
+      alert("ref = " + ref + "\n" +
+            "datas = " + datas + "\n" +
+            "title_label = " + title_label + "\n" +
+            "title_id = " + title_id + "\n" +
+            "artical_label = " + artical_label + "\n" +
+            "artical_id = " + artical_id + "\n" +
+            "footer_label = " + footer_label + "\n" +
+            "footer_id = " + footer_id);
+
   };
 
   (function(){
