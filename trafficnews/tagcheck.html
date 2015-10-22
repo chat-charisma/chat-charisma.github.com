@@ -264,20 +264,25 @@ ga('send', 'pageview');
         tf = document.getElementById('div-gpt-ad-footer'),
         shead,sfoot,stg,sta,stf;
     stag = document.createElement('script');
-    /*
-    stg = tg.createElement('script');
-    sta = ta.createElement('script');
-    stf = tf.createElement('script');
-    */
+    stg = document.createElement('script');
+    sta = document.createElement('script');
+    stf = document.createElement('script');
     shead = "<scr"+"ipt type='text/javascript'>";
     sfoot = "</scr"+"ipt>";
     tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
     tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
     tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
+    tgdata = shead + tgsrc + sfoot;
+    tadata = shead + tasrc + sfoot;
+    tfdata = shead + tfsrc + sfoot;
+    stg.innerHTML = tgdata;
+    sta.innerHTML = tadata;
+    stf.innerHTML = tfdata;
     
-    tg.appendChild(stag);
-    ta.appendChild(stag);
-    tf.appendChild(stag);
+    tg.parentNode.insertBefore(stg, tg);
+    ta.parentNode.insertBefore(sta, ta);
+    tf.parentNode.insertBefore(stf, tf);
+    
     tg.innerText = tgsrc;
     ta.innerText = tasrc;
     tf.innerText = tfsrc;
