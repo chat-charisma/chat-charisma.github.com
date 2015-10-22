@@ -262,8 +262,10 @@ ga('send', 'pageview');
     var tg = document.getElementById('div-gpt-ad-title'),
         ta = document.getElementById('div-gpt-ad-artical'),
         tf = document.getElementById('div-gpt-ad-footer'),
-        shead,sfoot,stg,sta,stf;
-    stag = document.createElement('script');
+        shead,sfoot,
+        stg,sta,stf,
+        tgsrc,tasrc,tfsrc,
+        tgdata,tadata,tfdata;
     stg = document.createElement('script');
     sta = document.createElement('script');
     stf = document.createElement('script');
@@ -272,9 +274,9 @@ ga('send', 'pageview');
     tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
     tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
     tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
-    tgdata = shead + tgsrc + sfoot;
-    tadata = shead + tasrc + sfoot;
-    tfdata = shead + tfsrc + sfoot;
+    tgdata = shead . tgsrc . sfoot;
+    tadata = shead . tasrc . sfoot;
+    tfdata = shead . tfsrc . sfoot;
     stg.innerHTML = tgdata;
     sta.innerHTML = tadata;
     stf.innerHTML = tfdata;
