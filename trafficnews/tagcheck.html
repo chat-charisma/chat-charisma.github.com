@@ -258,23 +258,24 @@ ga('send', 'pageview');
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
     });
-    (function(){
+
+    makeAdsScriptTag(title_id,artical_id,footer_id);
+
+  };
+  (function makeAdsScriptTag(){
       var tg = document.getElementById('div-gpt-ad-title'),
           ta = document.getElementById('div-gpt-ad-artical'),
           tf = document.getElementById('div-gpt-ad-footer'),
           scripttext = "title_id = " + title_id + "\n" + "artical_id = " + artical_id + "\n" + "footer_id = " + footer_id,
           stag;
       stag = document.createElement('script');
-      stag.setAttribute('type', 'text/javascript'); 
-      stag.innerHTML = "alert(scripttext)";
-      tg.innerText = "title_id : " + title_id;
-      ta.innerText = "artical_id : " + artical_id;
-      tf.innerText = "footer_id : " + footer_id;
-      tg.appendChild(stag);
-      ta.appendChild(stag);
-      tf.appendChild(stag);
-    })();
-  };
+      tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
+      tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
+      tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
+      tg.innerText = "title : " + tgsrc;
+      ta.innerText = "artical : " + tasrc;
+      tf.innerText = "footer : " + tfsrc;
+  })();
 
   (function(){
     if(document.addEventListener){
