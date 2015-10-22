@@ -274,20 +274,20 @@ ga('send', 'pageview');
     tgsrc = "googletag.cmd.push(function() { googletag.display('" + title_id + "'); });";
     tasrc = "googletag.cmd.push(function() { googletag.display('" + artical_id + "'); });";
     tfsrc = "googletag.cmd.push(function() { googletag.display('" + footer_id + "'); });";
-    tgdata = shead . tgsrc . sfoot;
-    tadata = shead . tasrc . sfoot;
-    tfdata = shead . tfsrc . sfoot;
+    tgdata = shead + tgsrc + sfoot;
+    tadata = shead + tasrc + sfoot;
+    tfdata = shead + tfsrc + sfoot;
     stg.innerHTML = tgdata;
     sta.innerHTML = tadata;
     stf.innerHTML = tfdata;
     
+    tg.innerText = tgdata;
+    ta.innerText = tadata;
+    tf.innerText = tfdata;
+    
     tg.parentNode.insertBefore(stg, tg);
     ta.parentNode.insertBefore(sta, ta);
     tf.parentNode.insertBefore(stf, tf);
-    
-    tg.innerText = tgsrc;
-    ta.innerText = tasrc;
-    tf.innerText = tfsrc;
   };
 
   (function(){
