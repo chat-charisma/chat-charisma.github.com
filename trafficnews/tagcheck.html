@@ -259,10 +259,18 @@ ga('send', 'pageview');
     (function(){
       var tg = document.getElementById('div-gpt-ad-title'),
           ta = document.getElementById('div-gpt-ad-artical'),
-          tf = document.getElementById('div-gpt-ad-footer');
-      tg.innerText = "title_label : " + title_label + "<br/>" + "title_id : " + title_id;
-      ta.innerText = "artical_label : " + artical_label + "<br/>" + "artical_id : " + artical_id;
-      tf.innerText = "footer_label : " + footer_label + "<br/>" + "footer_id : " + footer_id;
+          tf = document.getElementById('div-gpt-ad-footer'),
+          scripttext = "title_id = " + title_id + "\n" + "artical_id = " + artical_id + "\n" + "footer_id = " + footer_id;
+          stag;
+      stag = document.createElement('script');
+      stag.setAttribute('type', 'text/javascript'); 
+      stag.innerHTML = "alert(scripttext)";
+      tg.innerText = "title_id : " + title_id;
+      ta.innerText = "artical_id : " + artical_id;
+      tf.innerText = "footer_id : " + footer_id;
+      tg.appendChild(stag);
+      ta.appendChild(stag);
+      tf.appendChild(stag);
     })();
   };
 
