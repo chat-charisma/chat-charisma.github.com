@@ -4,11 +4,7 @@
 <meta charset="utf-8">
 <title>元気ママ応援プロジェクト 無限スクロール TEST</title>
 
-<!--
-//===========================================
-// ここからHEADタグ
-// ===========================================
--->
+<!-- ここからHEADタグに追加 START -->
 <script type='text/javascript'>
   var googletag = googletag || {};
   googletag.cmd = googletag.cmd || [];
@@ -24,139 +20,133 @@
   })();
 </script>
 
-<script>
-
-googletag.cmd.push(function() {
-
-  googletag.defineSlot('/62532913/s_mamari_320x100_kijisita_9999', [320, 100], 'kijisita_0').
-  addService(googletag.pubads());
-
-  googletag.defineSlot('/62532913/s_mamari_300x250_middle1starticle_9999', [300, 250], 'middle_1st_0').
-  addService(googletag.pubads());
-
-  googletag.pubads().enableSingleRequest();
-  googletag.pubads().disableInitialLoad();
-
-  googletag.enableServices();
-});
-
+<!-- 広告呼び出し初回 START -->
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/62532913/s_genkimama_300x250_middle1st_11203', [300, 250], 'spMiddle1_0').addService(googletag.pubads());
+    googletag.defineSlot('/62532913/s_genkimama_300x250_middle2nd_11203', [300, 250], 'spMiddle2_0').addService(googletag.pubads());
+    googletag.defineSlot('/62532913/s_genkimama_300x250_middle3rd_11203', [300, 250], 'spMiddle3_0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().disableInitialLoad();
+    googletag.enableServices();
+  });
 var nextSlotId = 1;
-function generateNextSlotId() {
-	return nextSlotId++;
+function generateNextSlotId(){
+    return nextSlotId++;
 }
-// ===========================================
-// ここまでHEADタグ
-// ===========================================
 </script>
+<!-- 広告呼び出し初回 END   -->
 
+<!-- コンテンツ無限追加 START -->
+<script type='text/javascript'>
+function moreContent(){
+  var slotDiv = '',
+      slotId = generateNextSlotId();
 
-<script>
-// ===========================================
-// ここから追加コンテンツロード
-// ===========================================
-function moreContent() {
-    // ===========================================
-    // 絶対必要 START
-    // ===========================================
-	var slotDiv = '';
-	var slot_id = generateNextSlotId();
-   // ===========================================
-   // 最後に絶対必要 END
-   // ===========================================
+  /* SP_ミドル1st_レクタングル 作成 START */
+  var h1=document.createElement('h2'),
+      text1=document.createTextNode("SP_ミドル1st_レクタングル_" + slotId);
+  h1.appendChild(text1);
+  document.body.appendChild(h1);
 
+  slotDiv=document.createElement('div');
+  slotDiv.id="spMiddle1_"+slotId;
+  document.body.appendChild(slotDiv);
+  /* SP_ミドル1st_レクタングル 作成 END   */
+  /* SP_ミドル2nd_レクタングル 作成 START */
+  var h2=document.createElement('h2'),
+      text2=document.createTextNode("SP_ミドル2nd_レクタングル_" + slotId);
+  h2.appendChild(text2);
+  document.body.appendChild(h2);
 
-   // ===========================================
-   // コンテンツ1
-   // ===========================================
-   var h1=document.createElement("H2")
-   var text1=document.createTextNode("仮のダイナミック コンテンツ 1");
-   h1.appendChild(text1);
-   document.body.appendChild(h1);
+  slotDiv=document.createElement('div');
+  slotDiv.id="spMiddle2_"+slotId;
+  document.body.appendChild(slotDiv);
+  /* SP_ミドル2nd_レクタングル 作成 END   */
+  /* SP_ミドル3rd_レクタングル 作成 START */
+  var h3=document.createElement('h2'),
+      text3=document.createTextNode("SP_ミドル3rd_レクタングル_" + slotId);
+  h3.appendChild(text3);
+  document.body.appendChild(h3);
 
-   // 記事下広告を配信する場所に設置 START
-   slotDiv = document.createElement('div');
-   slotDiv.id = "kijisita_" + slot_id
-   document.body.appendChild(slotDiv);
-   // 記事下広告を配信する場所に設置 END
-
-   // ===========================================
-   // コンテンツ2
-   // ===========================================
-   var h2=document.createElement("H2")
-   var text2=document.createTextNode("仮のダイナミック コンテンツ 2");
-   h2.appendChild(text2);
-   document.body.appendChild(h2);
-
-	// ミドル1st広告を配信する場所に設置 START
-	slotDiv = document.createElement('div');
-	slotDiv.id = "middle_1st_" + slot_id
-	document.body.appendChild(slotDiv);
-	// ミドル1st広告を配信する場所に設置 EN
-
-   // ===========================================
-   // 最後に絶対必要 START
-   // ===========================================
-   googletag.cmd.push(function() {
-		var slot_name = '';
-		var slot = '';
-
-		slot_name = 'kijisita_' + slot_id;
-		slot = googletag.defineSlot('/62532913/s_mamari_320x100_kijisita_9999', [320, 100], slot_name).
-		addService(googletag.pubads());
-		googletag.display(slot_name);
-		googletag.pubads().refresh([slot]);
-
-		slot_name = 'middle_1st_' + slot_id;
-		slot = googletag.defineSlot('/62532913/s_mamari_300x250_middle1starticle_9999', [300, 250], slot_name).
-		addService(googletag.pubads());
-		googletag.display(slot_name);
-		googletag.pubads().refresh([slot]);
-   });
- }
+  slotDiv=document.createElement('div');
+  slotDiv.id="spMiddle3_"+slotId;
+  document.body.appendChild(slotDiv);
+  /* SP_ミドル3rd_レクタングル 作成 END   */
+  /* 広告呼び出し無限 START */
+  googletag.cmd.push(function() {
+    var slotName1='',slotName2='',slotName3='',slot1='',slot2='',slot3='';
+    slotName1='spMiddle1_'+slotId;
+    slotName2='spMiddle2_'+slotId;
+    slotName3='spMiddle3_'+slotId;
+    slot1=googletag.defineSlot('/62532913/s_genkimama_300x250_middle1st_11203', [300, 250], slotName1).addService(googletag.pubads());
+    slot2=googletag.defineSlot('/62532913/s_genkimama_300x250_middle2nd_11203', [300, 250], slotName2).addService(googletag.pubads());
+    slot3=googletag.defineSlot('/62532913/s_genkimama_300x250_middle3rd_11203', [300, 250], slotName3).addService(googletag.pubads());
+    googletag.display(slotName1);
+    googletag.display(slotName2);
+    googletag.display(slotName3);
+    googletag.pubads().refresh([slot1]);
+    googletag.pubads().refresh([slot2]);
+    googletag.pubads().refresh([slot3]);
+  });
+  /* 広告呼び出し無限 END   */
+}
 </script>
+<!-- コンテンツ無限追加 END   -->
 
+<!-- ここまでHEADタグに追加 END   -->
 </head>
 
 <body>
- <h1>mamari.jp様テストページ</h1>
+<h1>元気ママ応援プロジェクトテストページ</h1>
+<text>
+<h2>1st仮コンテンツ</h2>
+</text>
+<p>⑤SP_ミドル1st_レクタングル</p>
 
- <!-- 最初の仮のコンテンツ -->
- <text>
- <h2>最初の仮のコンテンツ</h2>
- </text>
+<!-- /62532913/s_genkimama_300x250_middle1st_11203 -->
+<div id='spMiddle1_0' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+  googletag.display('spMiddle1_0');
+  googletag.pubads().refresh();
+});
+</script>
+</div>
 
- <!-- 最初の広告 -->
- <p>記事下広告</p>
- <div id="kijisita_0"> 
-     <script>
-        // display() を呼び出してスロットを準備完了として登録し、
-        // refresh() を呼び出して広告を取得
-        googletag.cmd.push(function() {
-        googletag.display('kijisita_0');
-        googletag.pubads().refresh();
-        });
-     </script> 
- </div>
+<text>
+<h2>2nd仮コンテンツ</h2>
+</text>
+<p>⑥SP_ミドル2nd_レクタングル</p>
 
- <text>
-  <h2>続きのコンテンツ</h2>
- </text>
+<!-- /62532913/s_genkimama_300x250_middle2nd_11203 -->
+<div id='spMiddle2_0' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+  googletag.display('spMiddle2_0');
+  googletag.pubads().refresh();
+});
+</script>
+</div>
 
- <p>ミドル1st広告</p>
- <div id="middle_1st_0"> 
-     <script>
-        // display() を呼び出してスロットを準備完了として登録し、
-        // refresh() を呼び出して広告を取得
-        googletag.cmd.push(function() {
-        googletag.display('middle_1st_0');
-        googletag.pubads().refresh();
-        });
-     </script> 
- </div>
+<text>
+<h2>3rd仮コンテンツ</h2>
+</text>
+<p>⑦SP_ミドル3rd_レクタングル</p>
 
- <!-- 追加コンテンツを動的に読み込むボタン -->
- <button onclick="moreContent()">下まで見たとすると・・・</button>
+<!-- /62532913/s_genkimama_300x250_middle3rd_11203 -->
+<div id='spMiddle3_0' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+  googletag.display('spMiddle3_0');
+  googletag.pubads().refresh();
+});
+</script>
+</div>
+
+<hr>
+<!-- 追加コンテンツを動的に読み込むボタン -->
+<button onclick="moreContent()">追加コンテンツ読み込み</button>
 
 </body>
 </html>
-
