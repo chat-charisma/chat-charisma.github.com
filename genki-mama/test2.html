@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>元気ママ応援プロジェクト 無限スクロール TEST</title>
+
+<script>
+ var googletag = googletag || {};
+ googletag.cmd = googletag.cmd || [];
+ (function(){
+   var gads = document.createElement('script');
+   gads.async = true;
+   var useSSL = 'https:' == document.location.protocol;
+   gads.src = (useSSL ? 'https:' : 'http:') +
+       '//www.googletagservices.com/tag/js/gpt.js';
+   var node = document.getElementsByTagName('script')[0];
+   node.parentNode.insertBefore(gads, node);
+   })();
+</script>
+
+<script>
+
+var adslot0;
+
+ googletag.cmd.push(function() {
+
+   // ページに最初に表示するスロットを宣言
+   adslot0 = googletag.defineSlot('/62532913/s_genkimama_300x250_middle1st_11203', [300, 2509, 'leaderboard').
+       setTargeting("test","infinitescroll").
+       addService(googletag.pubads());
+
+   // 無限スクロールには SRA が必要
+   googletag.pubads().enableSingleRequest();
+
+   // 初期読み込みを無効にする。refresh() を使用して広告を取得します。
+   // この関数を呼び出すと、display() の呼び出しによりスロットが準備完了として
+   // 登録されるだけで、広告が取得されるわけではありません。
+   googletag.pubads().disableInitialLoad();
+
+   // サービスを有効にする
+   googletag.enableServices();
+ });
+
+ // スロットの固有名を生成する関数
+ var nextSlotId = 1;
+ function generateNextSlotName() {
+   var id = nextSlotId++;
+   return 'adslot' + id;
+ }
+
+ // ページにコンテンツを追加する関数。実際の無限スクロールを再現しますが、
+ // コードとしては簡潔にしています。
+ function moreContent() {
+
+   // 次のスロット名を生成
+   var slotName = generateNextSlotName();
+
+   // スロット用の div を作成
+   var slotDiv = document.createElement('div');
+   slotDiv.id = slotName; // ID は slotName と同じである必要があります。
+   document.body.appendChild(slotDiv);
+
+   // 仮のコンテンツ 1 を作成して追加
+   var h1=document.createElement("H2")
+   var text1=document.createTextNode("仮のダイナミック コンテンツ 1");
+   h1.appendChild(text1);
+   document.body.appendChild(h1);
+
+   // 仮のコンテンツ 2 を作成して追加
+   var h2=document.createElement("H2")
+   var text2=document.createTextNode("仮のダイナミック コンテンツ 2");
+   h2.appendChild(text2);
+   document.body.appendChild(h2);
+
+   // スロット自体を定義。div の登録には display()、
+   // 広告の取得には refresh() を呼び出します。
+   googletag.cmd.push(function() {
+     var slot = googletag.defineSlot('/6355419/Travel', [728, 90], slotName).
+         setTargeting("test","infinitescroll").
+         addService(googletag.pubads());
+
+     // スロットの div がページに配置された後 refresh の呼び出しより前に
+     // display を呼び出す必要があります。
+     googletag.display(slotName);
+     googletag.pubads().refresh([slot]);
+   });
+ }
+</script>
+
+</head>
+
+<body>
+ <h1>GPT テストページ - 無限スクロール</h1>
+
+ <!-- 最初の仮のコンテンツ -->
+ <text>
+ <h2>最初の仮のコンテンツ</h2>
+ </text>
+
+ <!-- 最初の広告 -->
+ <div id="leaderboard"> 
+     <script>
+        // display() を呼び出してスロットを準備完了として登録し、
+        // refresh() を呼び出して広告を取得
+        googletag.cmd.push(function() {
+          googletag.display('leaderboard');
+          googletag.pubads().refresh([adslot0]);
+        });
+     </script> 
+ </div>
+
+ <!-- 続きの最初の仮のコンテンツ -->
+ <text>
+  <h2>最初の仮のコンテンツ 1</h2>
+  <h2>最初の仮のコンテンツ 2</h2>
+ </text>
+
+ <!-- 追加コンテンツを動的に読み込むボタン -->
+ <button onclick="moreContent()">続きのコンテンツ</button>
+
+</body>
+</html>
