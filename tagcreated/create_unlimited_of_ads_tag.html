@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>タグ作成</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<!--&#91;if lt IE 9&#93;>
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<!&#91;endif&#93;-->
+<link rel="shortcut icon" href="">
+</head>
+<body>
+<article>
+<h1>無限スクロールタグの作成</h1>
+<p>サイトの記事ページが無限スクロールで出来ている場合のAdX掲載タグ</p>
+<form action="" method="post">
+<label>id入力：<input type="text" name="tid_0"></label>
+<label>広告幅入力：<input type="text" name="tws_0" maxlength="4" value="300"></label>
+<label>広告高入力：<input type="text" name="ths_0" maxlength="4" value="250"></label>
+<textarea name="tgd1" rows="6" cols="160">
+入力例:<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/62532913/s_genkimama_300x250_middle3rd_11203', [300, 250], 'div-gpt-ad-1444998069658-6').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+</textarea><br>
+BODY部タグ入力：<br>
+<textarea name="tgd2" rows="6" cols="160">
+<!-- /62532913/s_genkimama_300x250_middle3rd_11203 -->
+<div id='div-gpt-ad-1444998069658-6' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1444998069658-6'); });
+</script>
+</div>
+</textarea><br>
+作成されるHTML：<br>
+<textarea name="tgc1" rows="13" cols="160">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>無限スクロール TEST</title>
+<!-- ここからHEADタグに追加 START -->
+<script type='text/javascript'>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/62532913/s_genkimama_300x250_middle3rd_11203', [300, 250], 'spMiddle_0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().disableInitialLoad();
+    googletag.enableServices();
+  });
+var nextSlotId = 1;
+function generateNextSlotId(){
+    return nextSlotId++;
+}
+</script>
+<script type='text/javascript'>
+function moreContent(){
+  var slotDiv = '',
+      slotId = generateNextSlotId();
+  var h3=document.createElement('h2'),
+      text3=document.createTextNode("SP_ミドル3rd_レクタングル_" + slotId);
+  h3.appendChild(text3);
+  document.body.appendChild(h3);
+  slotDiv=document.createElement('div');
+  slotDiv.id="spMiddle_"+slotId;
+  document.body.appendChild(slotDiv);
+  googletag.cmd.push(function() {
+    var slotName3='',slot3='';
+    slotName3='spMiddle_'+slotId;
+    slot3=googletag.defineSlot('/62532913/s_genkimama_300x250_middle3rd_11203', [300, 250], slotName3).addService(googletag.pubads());
+    googletag.display(slotName3);
+    googletag.pubads().refresh([slot3]);
+  });
+}
+</script>
+<!-- ここまでHEADタグに追加 END   -->
+</head>
+<body>
+<h1>テストページ</h1>
+<text>
+<h2>仮コンテンツ</h2>
+</text>
+<p>⑦仮コンテンツ</p>
+<!-- /62532913/s_genkimama_300x250_middle3rd_11203 -->
+<div id='spMiddle_0' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+  googletag.display('spMiddle_0');
+  googletag.pubads().refresh();
+});
+</script>
+</div>
+<!-- 追加コンテンツを動的に読み込むボタン -->
+<button onclick="moreContent()">追加コンテンツ読み込み</button>
+</body>
+</html>
+</textarea>
+</form>
+</article>
+
+<!-- SCRIPTS -->
+<!-- Example: <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+</body>
+</html>
+
