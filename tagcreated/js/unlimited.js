@@ -11,7 +11,9 @@ function mTDa(){
           "<label>広告高入力：<input type=\"text\" name=\""+tHS+"\" maxlength=\"4\" value=\"250\"></label><br>";
       tDTd=document.createTextNode(tDT);
   aTDc.appendChild(tDTd);
+/*
   aTDc.id=aTDI;
+*/
   document.body.appendChild(aTDc);
   
 /*
