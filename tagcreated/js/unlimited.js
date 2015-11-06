@@ -1,11 +1,20 @@
 var resText="unlimited tag";
-var nextSlotId=1;
-function generateNextSlotId(){
-  return nextSlotId++;
+var nSI=1;
+function gNSI(){
+  return nSI++;
 };
-function moreContent(){
-  var slotDiv = '',
-      slotId = generateNextSlotId();
+function mTDa(){
+  var sD='',sI=gNSI(),aTDI="aTD_"+sI,tID="tid_"+sI,tWS="tws_"+sI,tHS="ths_"+sI+
+  var aTDc=document.createElement('div'),
+      tDT="<label>id入力：<input type=\"text\" name=\""+tID+"\"></label><br>"+
+          "<label>広告幅入力：<input type=\"text\" name=\""+tWS+"\" maxlength=\"4\" value=\"300\"></label><br>"+
+          "<label>広告高入力：<input type=\"text\" name=\""+tHS+"\" maxlength=\"4\" value=\"250\"></label><br>";
+      tDTd=document.createTextNode(tDT);
+  aTDc.appendChild(tDTd);
+  aTDc.id=aTDI;
+  document.body.appendChild(aTDc);
+  
+/*
   var h3=document.createElement('h2'),
       text3=document.createTextNode("コンテンツ_" + slotId);
   h3.appendChild(text3);
@@ -13,7 +22,6 @@ function moreContent(){
   slotDiv=document.createElement('div');
   slotDiv.id="spMiddle_"+slotId;
   document.body.appendChild(slotDiv);
-/*
   googletag.cmd.push(function() {
     var slotName3='',slot3='';
     slotName3='spMiddle_'+slotId;
