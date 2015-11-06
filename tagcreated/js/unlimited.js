@@ -9,11 +9,9 @@ function mTDa(){
       tDT="<label>id入力：<input type=\"text\" name=\""+tID+"\"></label><br>"+
           "<label>広告幅入力：<input type=\"text\" name=\""+tWS+"\" maxlength=\"4\" value=\"300\"></label><br>"+
           "<label>広告高入力：<input type=\"text\" name=\""+tHS+"\" maxlength=\"4\" value=\"250\"></label><br>";
-      tDTd=document.createTextNode(tDT);
-  aTDc.appendChild(tDTd);
-/*
+  tDTd=document.createTextNode(tDT);
   aTDc.id=aTDI;
-*/
+  aTDc.appendChild(tDTd);
   document.body.appendChild(aTDc);
   
 /*
