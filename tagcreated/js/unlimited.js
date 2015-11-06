@@ -6,9 +6,10 @@ function gNSI(){
 function mTDa(){
   var sD='',sI=gNSI(),aTDI="aTD_"+sI,tID="tid_"+sI,tWS="tws_"+sI,tHS="ths_"+sI;
   var aTDc=document.createElement('div'),
-      tDT="<label>id入力：<input type=\"text\" name=\""+tID+"\"></label><br>"+
-          "<label>広告幅入力：<input type=\"text\" name=\""+tWS+"\" maxlength=\"4\" value=\"300\"></label><br>"+
-          "<label>広告高入力：<input type=\"text\" name=\""+tHS+"\" maxlength=\"4\" value=\"250\"></label><br>";
+      tDT="<label id=\"ids\">id入力：<input type=\"text\" name=\""+tID+"\"></label>"+
+          "<label id=\"wis\">広告幅入力：<input type=\"text\" name=\""+tWS+"\"></label>"+
+          "<label id=\"his\">広告高入力：<input type=\"text\" name=\""+tHS+"\"></label>"+
+          "<hr>";
   aTDc.id=aTDI;
   aTDc.innerHTML=tDT;
   document.body.appendChild(aTDc);
