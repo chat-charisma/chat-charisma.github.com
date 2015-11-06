@@ -4,7 +4,7 @@ function gNSI(){
   return nSI++;
 };
 function mTDa(){
-  var sD='',sI=gNSI(),aTDI="aTD_"+sI,tID="tid_"+sI,tWS="tws_"+sI,tHS="ths_"+sI+
+  var sD='',sI=gNSI(),aTDI="aTD_"+sI,tID="tid_"+sI,tWS="tws_"+sI,tHS="ths_"+sI;
   var aTDc=document.createElement('div'),
       tDT="<label>id入力：<input type=\"text\" name=\""+tID+"\"></label><br>"+
           "<label>広告幅入力：<input type=\"text\" name=\""+tWS+"\" maxlength=\"4\" value=\"300\"></label><br>"+
