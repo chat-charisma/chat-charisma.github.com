@@ -7,7 +7,7 @@ function moreContent(){
   var slotDiv = '',
       slotId = generateNextSlotId();
   var h3=document.createElement('h2'),
-      text3=document.createTextNode("SP_ミドル3rd_レクタングル_" + slotId);
+      text3=document.createTextNode("コンテンツ_" + slotId);
   h3.appendChild(text3);
   document.body.appendChild(h3);
   slotDiv=document.createElement('div');
