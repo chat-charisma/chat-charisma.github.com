@@ -1,6 +1,6 @@
 var cnt=document.getElementsByTagName("script").lenght;
 var script=document.createElement("script");
-script.src="unlimited.js";
+script.src="./js/unlimited.js";
 var head=document.getElementsByTagName("head");
 head[0].appendChild(script);
 setTimeout(function(){
