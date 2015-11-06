@@ -5,4 +5,4 @@ var head=document.getElementsByTagName("head");
 head[0].appendChild(script);
 setTimeout(function(){
   (document.getElementsByTagName("script").length==cnt)?setTimeout(arguments.callee,100):alert(resText);
-),100);
+},100);
