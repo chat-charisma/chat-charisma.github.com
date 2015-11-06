@@ -1,1 +1,1 @@
-alert("unlimited tag works");
+var resText="unlimited tag";
